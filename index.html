@@ -3,7 +3,9 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="preconnect" href="https://i.imgur.com" crossorigin>
+<link rel="dns-prefetch" href="https://i.imgur.com">
 <title>TEXTILE ARCHIVE</title>
 <style>
 :root{--bg:#080808;--fg:#fff;--muted:#999;--line:rgba(255,255,255,.22)}
@@ -132,10 +134,37 @@ body:has(#fullscreen.active) .theme-button{display:none}
 .mockup-preset-colors button{width:22px;height:22px;border:1px solid #888;border-radius:50%;padding:0}
 .mockup-small{color:var(--muted);font-size:11px;line-height:1.55}
 .mockup-error{color:#bd4b4b;font-size:11px;line-height:1.55;margin:8px 0}
-@media(max-width:820px){.mockup-layout{inset:76px 16px 13px;display:flex;flex-direction:column;gap:10px;overflow-y:auto}.mockup-workspace{flex:0 0 auto;min-height:460px}.mockup-stage{height:53vh;min-height:360px;flex:none}.mockup-inspector{flex:0 0 auto;min-height:260px;overflow:visible}.mockup-heading h2{font-size:20px}.mockup-type-button{padding:8px 12px}.mockup-stage-note{font-size:10px}}
-@media(max-width:700px){header{padding:20px}.floating-item{width:clamp(55px,17vw,100px)}.guide-top{top:61px;right:20px}.guide-bottom{left:20px;bottom:58px}.home-footer{left:20px}.detail-info{padding:48px 20px 16px}.detail-image-hint{top:9px;right:20px}.detail-title{font-size:18px}.detail-description{font-size:11px;line-height:1.5;padding-bottom:55px}.mockup-entry{right:16px;bottom:16px;width:52px;height:52px}.fullscreen-title{top:78px;left:16px;font-size:24px}.fullscreen-subtitle{top:110px;left:16px;font-size:16px}.full-back{left:16px;top:150px}.fullscreen-top{left:16px;top:195px}.fullscreen-bottom{bottom:25px;gap:10px}.zoom-controls{right:15px;bottom:90px}.mockup-hint-button{width:50px;height:50px}}
 
-/* MOCKUP LAYOUT — matching the supplied two-panel reference */
+@media(max-width:820px){
+.mockup-layout{inset:76px 16px 13px;display:flex;flex-direction:column;gap:10px;overflow-y:auto}
+.mockup-workspace{flex:0 0 auto;min-height:460px}
+.mockup-stage{height:53vh;min-height:360px;flex:none}
+.mockup-inspector{flex:0 0 auto;min-height:260px;overflow:visible}
+.mockup-heading h2{font-size:20px}
+.mockup-type-button{padding:8px 12px}
+.mockup-stage-note{font-size:10px}
+}
+@media(max-width:700px){
+header{padding:20px}
+.floating-item{width:clamp(55px,17vw,100px)}
+.guide-top{top:61px;right:20px}
+.guide-bottom{left:20px;bottom:58px}
+.home-footer{left:20px}
+.detail-info{padding:48px 20px 16px}
+.detail-image-hint{top:9px;right:20px}
+.detail-title{font-size:18px}
+.detail-description{font-size:11px;line-height:1.5;padding-bottom:55px}
+.mockup-entry{right:16px;bottom:16px;width:52px;height:52px}
+.fullscreen-title{top:78px;left:16px;font-size:24px}
+.fullscreen-subtitle{top:110px;left:16px;font-size:16px}
+.full-back{left:16px;top:150px}
+.fullscreen-top{left:16px;top:195px}
+.fullscreen-bottom{bottom:25px;gap:10px}
+.zoom-controls{right:15px;bottom:90px}
+.mockup-hint-button{width:50px;height:50px}
+}
+
+/* MOCKUP LAYOUT */
 body:has(#mockup.active){--bg:#f7f7f5;--fg:#111;--muted:#777;--line:rgba(0,0,0,.22);background:#f7f7f5;color:#111}
 body:has(#mockup.active) .logo,body:has(#mockup.active) .counter{color:#111}
 body:has(#mockup.active) .theme-button{background:#111;border-color:#111}
@@ -183,80 +212,81 @@ body:has(#mockup.active) .theme-button{background:#111;border-color:#111}
 @media(max-width:820px){.mockup-back-top{top:70px;left:18px}.mockup-layout{inset:110px 16px 20px;display:flex;flex-direction:column;align-items:stretch;max-width:none;gap:24px;overflow:auto}.mockup-workspace{flex:none;height:auto;min-height:0;max-height:none}.mockup-stage{height:min(55vh,560px);max-width:none;max-height:none}.mockup-inspector{width:100%;max-width:580px;margin:0 auto;max-height:none;min-height:440px;overflow:visible;padding:26px 18px;border-radius:35px}.mockup-panel-scroll{overflow:visible}.mockup-panel-head h2{font-size:23px}.mockup-type-nav{gap:5px}}
 @media(max-width:430px){.mockup-type-button{font-size:11px;padding:9px 10px}.mockup-inspector{padding:24px 14px}.mockup-inspector #mockupReset{min-width:125px}.mockup-inspector .inspector-actions{gap:8px}}
 
-/* RETURN BUTTONS */
+/* BACK BUTTON */
 .back-button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  flex-shrink:0;
-  width:max-content;
-  min-height:52px;
-  padding:13px 22px;
-  border:1px solid rgba(255,255,255,.28);
-  border-radius:999px;
-  background:rgba(44,44,44,.94);
-  color:#fff;
-  font-size:19px;
-  font-weight:500;
-  line-height:1.3;
-  white-space:nowrap;
-  text-shadow:none;
-  box-shadow:0 4px 16px rgba(0,0,0,.10);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  transition:background .2s ease,border-color .2s ease,transform .2s ease;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+flex-shrink:0;
+width:max-content;
+min-height:52px;
+padding:13px 22px;
+border:1px solid rgba(255,255,255,.28);
+border-radius:999px;
+background:rgba(44,44,44,.94);
+color:#fff;
+font-size:19px;
+font-weight:500;
+line-height:1.3;
+white-space:nowrap;
+text-shadow:none;
+box-shadow:0 4px 16px rgba(0,0,0,.10);
+backdrop-filter:blur(12px);
+-webkit-backdrop-filter:blur(12px);
+transition:background .2s ease,border-color .2s ease,transform .2s ease;
 }
 .back-button:hover{
-  background:rgba(65,65,65,.98);
-  border-color:rgba(255,255,255,.55);
-  transform:translateY(-1px);
+background:rgba(65,65,65,.98);
+border-color:rgba(255,255,255,.55);
+transform:translateY(-1px);
 }
 .back-button:focus-visible{outline:2px solid #fff;outline-offset:3px}
 #mockup .back-button{color:#fff}
 .full-back{font-size:19px}
 
-/* SYNCHRONIZED ICON AND TEXT BLINKING */
 .home-guide,.detail-image-hint{font-size:20px}
 .home-guide > span:not(.guide-hand),
 .detail-image-hint > span:not(.guide-hand){
-  animation:guideSynchronizedBlink 1.8s ease-in-out infinite;
+animation:guideSynchronizedBlink 1.8s ease-in-out infinite;
 }
 
-/* MOCKUP ENTRY LABEL */
+/* MOCKUP ENTRY */
 .mockup-entry{
-  width:auto;
-  min-width:151px;
-  height:58px;
-  padding:0 18px;
-  gap:10px;
-  border-radius:999px;
-  white-space:nowrap;
+width:auto;
+min-width:151px;
+height:58px;
+padding:0 18px;
+gap:10px;
+border-radius:999px;
+white-space:nowrap;
 }
 .mockup-entry span{font-size:15px;font-weight:600;line-height:1}
 .fullscreen-bottom .mockup-entry{
-  width:auto;
-  min-width:136px;
-  height:44px;
-  padding:0 14px;
-  gap:8px;
+width:auto;
+min-width:136px;
+height:44px;
+padding:0 14px;
+gap:8px;
 }
 .fullscreen-bottom .mockup-entry span{font-size:13px}
 
-/* MOCKUP DARK/LIGHT THEME */
+/* MOCKUP THEME */
 body:has(#mockup.active){
-  --bg:#080808;--fg:#fff;--muted:#aaa;--line:rgba(255,255,255,.22);
-  --mockup-border:#888;--mockup-faint:#9a9a9a;
-  --mockup-tab-border:#666;--mockup-active-bg:#fff;--mockup-active-fg:#111;
-  background:var(--bg);color:var(--fg);
+--bg:#080808;--fg:#fff;--muted:#aaa;--line:rgba(255,255,255,.22);
+--mockup-border:#888;--mockup-faint:#9a9a9a;
+--mockup-tab-border:#666;--mockup-active-bg:#fff;--mockup-active-fg:#111;
+background:var(--bg);color:var(--fg);
 }
 body.light:has(#mockup.active){
-  --bg:#f7f7f5;--fg:#111;--muted:#777;--line:rgba(0,0,0,.22);
-  --mockup-border:#858585;--mockup-faint:#808080;
-  --mockup-tab-border:#c9c9c7;--mockup-active-bg:#121212;--mockup-active-fg:#fff;
+--bg:#f7f7f5;--fg:#111;--muted:#777;--line:rgba(0,0,0,.22);
+--mockup-border:#858585;--mockup-faint:#808080;
+--mockup-tab-border:#c9c9c7;--mockup-active-bg:#121212;--mockup-active-fg:#fff;
 }
 body:has(#mockup.active) .logo,
 body:has(#mockup.active) .counter{color:var(--fg)}
-body:has(#mockup.active) .theme-button{background:#fff;border-color:var(--fg)}
+body:has(#mockup.active) .theme-button{
+background:#fff;border-color:var(--fg);
+}
 body.light:has(#mockup.active) .theme-button{background:#080808}
 #mockup{background:var(--bg);color:var(--fg)}
 #mockup .back-button{color:#fff}
@@ -277,13 +307,13 @@ body.light:has(#mockup.active) .theme-button{background:#080808}
 .mockup-inspector .mockup-small{color:var(--mockup-faint)}
 .mockup-inspector .inspector-action{color:var(--fg);border-color:var(--fg)}
 @media(max-width:700px){
-  .mockup-entry{min-width:139px;height:52px;padding:0 14px}
-  .mockup-entry span{font-size:14px}
-  .fullscreen-bottom .mockup-entry{min-width:125px;height:42px;padding:0 11px}
-  .fullscreen-bottom .mockup-entry span{font-size:12px}
+.mockup-entry{min-width:139px;height:52px;padding:0 14px}
+.mockup-entry span{font-size:14px}
+.fullscreen-bottom .mockup-entry{min-width:125px;height:42px;padding:0 11px}
+.fullscreen-bottom .mockup-entry span{font-size:12px}
 }
 
-/* RETURN BUTTON SPACING */
+/* SPACING */
 .detail-info{padding-top:42px;padding-bottom:18px;overflow:hidden}
 .detail-back{margin-top:2px;margin-bottom:22px}
 .detail-number{flex-shrink:0;margin-bottom:9px}
@@ -293,30 +323,30 @@ body.light:has(#mockup.active) .theme-button{background:#080808}
 .mockup-layout{inset:151px 30px 28px}
 .mockup-inspector{min-height:min(580px,calc(100vh - 190px));max-height:calc(100vh - 190px)}
 @media(max-width:820px){
-  .mockup-layout{inset:141px 16px 20px}
-  .mockup-inspector{min-height:440px;max-height:none}
+.mockup-layout{inset:141px 16px 20px}
+.mockup-inspector{min-height:440px;max-height:none}
 }
 @media(max-width:700px){
-  .detail-info{padding:44px 20px 16px}
-  .detail-back{margin-bottom:17px}
-  .fullscreen-top{top:230px}
+.detail-info{padding:44px 20px 16px}
+.detail-back{margin-bottom:17px}
+.fullscreen-top{top:230px}
 }
 
-/* COMPACT MOCKUP UI */
+/* COMPACT MOCKUP */
 .mockup-hint-button{width:48px;height:48px}
 .mockup-hint-button .guide-hand{width:29px;height:33px}
 .mockup-hint-button .guide-hand svg{width:25px;height:29px}
 .mockup-eyedropper{display:inline-flex;justify-content:center;align-items:center;padding:0}
 .mockup-eyedropper svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .mockup-layout{
-  inset:137px 30px 20px;
-  gap:clamp(22px,4vw,56px);
-  grid-template-columns:minmax(0,1fr) minmax(310px,390px);
+inset:137px 30px 20px;
+gap:clamp(22px,4vw,56px);
+grid-template-columns:minmax(0,1fr) minmax(310px,390px);
 }
 .mockup-inspector{
-  height:100%;min-height:0;max-height:none;
-  border-radius:34px;
-  padding:clamp(14px,2.3vh,23px) clamp(15px,1.9vw,22px);
+height:100%;min-height:0;max-height:none;
+border-radius:34px;
+padding:clamp(14px,2.3vh,23px) clamp(15px,1.9vw,22px);
 }
 .mockup-panel-head .mockup-eyebrow{font-size:11px;margin-bottom:5px}
 .mockup-panel-head h2{font-size:clamp(20px,1.65vw,24px);margin-bottom:14px}
@@ -339,101 +369,109 @@ body.light:has(#mockup.active) .theme-button{background:#080808}
 .mockup-inspector .mockup-color-box input{min-height:30px}
 
 @media(max-height:780px) and (min-width:821px){
-  .mockup-layout{inset:133px 22px 14px}
-  .mockup-inspector{padding:13px 16px}
-  .mockup-panel-head h2{font-size:21px;margin-bottom:9px}
-  .mockup-type-nav{padding-bottom:8px;margin-bottom:8px}
-  .mockup-type-button{padding:7px 10px}
-  .mockup-inspector .inspector-section{margin-bottom:10px}
-  .mockup-inspector .inspector-label{margin-bottom:6px}
-  .mockup-inspector .mockup-sv{height:clamp(70px,13vh,100px)}
-  .mockup-inspector .mockup-hue{margin:5px 0 8px}
-  .mockup-inspector .mockup-cmyk{margin:1px 0}
-  .mockup-inspector .mockup-preset-colors{margin:6px 0}
-  .mockup-inspector .mockup-small{margin:5px 0 0}
-  .mockup-inspector .inspector-actions{padding-top:6px}
+.mockup-layout{inset:133px 22px 14px}
+.mockup-inspector{padding:13px 16px}
+.mockup-panel-head h2{font-size:21px;margin-bottom:9px}
+.mockup-type-nav{padding-bottom:8px;margin-bottom:8px}
+.mockup-type-button{padding:7px 10px}
+.mockup-inspector .inspector-section{margin-bottom:10px}
+.mockup-inspector .inspector-label{margin-bottom:6px}
+.mockup-inspector .mockup-sv{height:clamp(70px,13vh,100px)}
+.mockup-inspector .mockup-hue{margin:5px 0 8px}
+.mockup-inspector .mockup-cmyk{margin:1px 0}
+.mockup-inspector .mockup-preset-colors{margin:6px 0}
+.mockup-inspector .mockup-small{margin:5px 0 0}
+.mockup-inspector .inspector-actions{padding-top:6px}
 }
 @media(max-height:650px) and (min-width:821px){
-  .mockup-layout{inset:125px 20px 12px}
-  .mockup-panel-head .mockup-eyebrow{font-size:10px;margin-bottom:2px}
-  .mockup-panel-head h2{font-size:18px;margin-bottom:6px}
-  .mockup-type-nav{margin-bottom:6px;padding-bottom:6px}
-  .mockup-inspector .mockup-sv{height:72px}
-  .mockup-inspector .mockup-small{display:none}
-  .mockup-inspector .mockup-preset-colors{margin:4px 0}
-  .mockup-inspector .mockup-preset-colors button{height:18px;width:18px}
-  .mockup-inspector .inspector-section{margin-bottom:6px}
-  .mockup-inspector .inspector-slider-row{margin:4px 0 1px;font-size:11px}
-  .mockup-inspector .inspector-range{height:12px;margin:0}
-  .mockup-inspector .inspector-swatches{padding:2px 5px 4px;gap:10px}
-  .mockup-inspector .inspector-swatches .color-swatch{width:20px;height:20px}
-  .mockup-inspector .inspector-select-row{margin-bottom:6px}
-  .mockup-inspector .inspector-select-row button{padding:6px 8px}
-  .mockup-inspector .inspector-label{margin-bottom:4px}
+.mockup-layout{inset:125px 20px 12px}
+.mockup-panel-head .mockup-eyebrow{font-size:10px;margin-bottom:2px}
+.mockup-panel-head h2{font-size:18px;margin-bottom:6px}
+.mockup-type-nav{margin-bottom:6px;padding-bottom:6px}
+.mockup-inspector .mockup-sv{height:72px}
+.mockup-inspector .mockup-small{display:none}
+.mockup-inspector .mockup-preset-colors{margin:4px 0}
+.mockup-inspector .mockup-preset-colors button{height:18px;width:18px}
+.mockup-inspector .inspector-section{margin-bottom:6px}
+.mockup-inspector .inspector-slider-row{margin:4px 0 1px;font-size:11px}
+.mockup-inspector .inspector-range{height:12px;margin:0}
+.mockup-inspector .inspector-swatches{padding:2px 5px 4px;gap:10px}
+.mockup-inspector .inspector-swatches .color-swatch{width:20px;height:20px}
+.mockup-inspector .inspector-select-row{margin-bottom:6px}
+.mockup-inspector .inspector-select-row button{padding:6px 8px}
+.mockup-inspector .inspector-label{margin-bottom:4px}
 }
 @media(max-width:820px){
-  .mockup-layout{inset:142px 16px 20px;display:flex;flex-direction:column;align-items:stretch;gap:20px;overflow-y:auto;overflow-x:hidden}
-  .mockup-workspace{height:auto;flex:0 0 auto}
-  .mockup-stage{height:min(53vh,560px);max-width:580px;align-self:center}
-  .mockup-inspector{height:auto;min-height:0;max-height:none;width:100%;max-width:580px;overflow:visible;border-radius:32px}
-  .mockup-panel-scroll{flex:none;overflow:visible}
-  .mockup-inspector .mockup-sv{height:145px}
+.mockup-layout{inset:142px 16px 20px;display:flex;flex-direction:column;align-items:stretch;gap:20px;overflow-y:auto;overflow-x:hidden}
+.mockup-workspace{height:auto;flex:0 0 auto}
+.mockup-stage{height:min(53vh,560px);max-width:580px;align-self:center}
+.mockup-inspector{height:auto;min-height:0;max-height:none;width:100%;max-width:580px;overflow:visible;border-radius:32px}
+.mockup-panel-scroll{flex:none;overflow:visible}
+.mockup-inspector .mockup-sv{height:145px}
 }
 @media(max-width:700px){
-  .mockup-layout{inset:139px 14px 20px}
-  .mockup-hint-button{width:44px;height:44px}
-  .mockup-hint-button .guide-hand{width:28px;height:30px}
-  .mockup-hint-button .guide-hand svg{width:24px;height:28px}
+.mockup-layout{inset:139px 14px 20px}
+.mockup-hint-button{width:44px;height:44px}
+.mockup-hint-button .guide-hand{width:28px;height:30px}
+.mockup-hint-button .guide-hand svg{width:24px;height:28px}
 }
 
-/* COLOR PICKER CIRCULAR SELECTOR */
+/* COLOR PICKER MARKER */
 .mockup-inspector .mockup-sv-wrap{
-  position:relative;
-  width:100%;
-  height:clamp(85px,15vh,140px);
+position:relative;
+width:100%;
+height:clamp(85px,15vh,140px);
 }
 .mockup-inspector .mockup-sv-wrap .mockup-sv{
-  display:block;
-  width:100%;
-  height:100%;
-  aspect-ratio:auto;
+display:block;
+width:100%;
+height:100%;
+aspect-ratio:auto;
 }
 .mockup-sv-marker{
-  position:absolute;
-  width:14px;
-  height:14px;
-  border:2px solid #fff;
-  border-radius:50%;
-  background:transparent;
-  box-shadow:0 0 0 1px #333,0 0 3px rgba(0,0,0,.25);
-  transform:translate(-50%,-50%);
-  pointer-events:none;
+position:absolute;
+width:14px;
+height:14px;
+border:2px solid #fff;
+border-radius:50%;
+background:transparent;
+box-shadow:0 0 0 1px #333,0 0 3px rgba(0,0,0,.25);
+transform:translate(-50%,-50%);
+pointer-events:none;
 }
 @media(max-height:780px) and (min-width:821px){
-  .mockup-inspector .mockup-sv-wrap{height:clamp(70px,13vh,100px)}
+.mockup-inspector .mockup-sv-wrap{height:clamp(70px,13vh,100px)}
 }
 @media(max-height:650px) and (min-width:821px){
-  .mockup-inspector .mockup-sv-wrap{height:72px}
+.mockup-inspector .mockup-sv-wrap{height:72px}
 }
 @media(max-width:820px){
-  .mockup-inspector .mockup-sv-wrap{height:145px}
+.mockup-inspector .mockup-sv-wrap{height:145px}
 }
 
-/* ENLARGED COLOR SWATCHES */
+/* ENLARGED SWATCHES */
 .color-swatch{width:33px;height:33px;border-radius:50%}
 .mockup-inspector .inspector-swatches .color-swatch{width:38px;height:38px}
 .mockup-inspector .mockup-preset-colors button{width:33px;height:33px;border-radius:50%;flex:0 0 auto}
 .mockup-inspector .inspector-swatches{gap:16px;padding:8px 8px 12px}
 .mockup-inspector .mockup-preset-colors{gap:7px}
 @media(max-height:650px) and (min-width:821px){
-  .mockup-inspector .inspector-swatches .color-swatch{width:30px;height:30px}
-  .mockup-inspector .mockup-preset-colors button{width:27px;height:27px}
+.mockup-inspector .inspector-swatches .color-swatch{width:30px;height:30px}
+.mockup-inspector .mockup-preset-colors button{width:27px;height:27px}
 }
 @media(max-width:420px){
-  .mockup-inspector .inspector-swatches{gap:13px}
-  .mockup-inspector .mockup-preset-colors{gap:6px}
+.mockup-inspector .inspector-swatches{gap:13px}
+.mockup-inspector .mockup-preset-colors{gap:6px}
 }
 .repeat-canvas{position:absolute;inset:0;display:block;width:100%;height:100%;pointer-events:none}
+
+/* IPAD TOUCH */
+#fullscreen,#patternLayer,#mockupCanvas,.mockup-stage{
+touch-action:none;
+overscroll-behavior:contain;
+-webkit-user-select:none;
+user-select:none;
+}
 </style>
 </head>
 <body>
@@ -449,20 +487,12 @@ body.light:has(#mockup.active) .theme-button{background:#080808}
 <main class="page active" id="home">
   <div id="floatingContainer"></div>
   <div class="home-guide guide-top">
-    <span class="guide-hand">
-      <svg viewBox="0 0 32 38">
-        <path d="M16 32 C10 27 7 24 6 21 C5 18 8 16 11 19 L13 21 V7 C13 3 19 3 19 7 V17 C20 14 24 15 24 18 C26 16 29 18 28 21 L27 28 C26 33 23 35 19 35 H15 Z"/>
-      </svg>
-    </span>
+    <span class="guide-hand"><svg viewBox="0 0 32 38"><path d="M16 32 C10 27 7 24 6 21 C5 18 8 16 11 19 L13 21 V7 C13 3 19 3 19 7 V17 C20 14 24 15 24 18 C26 16 29 18 28 21 L27 28 C26 33 23 35 19 35 H15 Z"/></svg></span>
     <span>아이콘을 눌러보세요</span>
   </div>
   <div class="home-guide guide-bottom">
     <span>이미지를 눌러보세요</span>
-    <span class="guide-hand">
-      <svg viewBox="0 0 32 38">
-        <path d="M16 32 C10 27 7 24 6 21 C5 18 8 16 11 19 L13 21 V7 C13 3 19 3 19 7 V17 C20 14 24 15 24 18 C26 16 29 18 28 21 L27 28 C26 33 23 35 19 35 H15 Z"/>
-      </svg>
-    </span>
+    <span class="guide-hand"><svg viewBox="0 0 32 38"><path d="M16 32 C10 27 7 24 6 21 C5 18 8 16 11 19 L13 21 V7 C13 3 19 3 19 7 V17 C20 14 24 15 24 18 C26 16 29 18 28 21 L27 28 C26 33 23 35 19 35 H15 Z"/></svg></span>
   </div>
   <div class="home-footer">JO WONHEE TEXTILE COLLECTION — 2026</div>
 </main>
@@ -471,20 +501,13 @@ body.light:has(#mockup.active) .theme-button{background:#080808}
   <div class="detail-layout">
     <div class="detail-image-wrap" id="detailImage" role="button" tabindex="0">
       <button class="mockup-entry" id="openMockupDetail" data-open-mockup aria-label="목업 만들기" title="목업 만들기">
-        <svg viewBox="0 0 24 24">
-          <rect x="3" y="3" width="18" height="18" rx="1"/>
-          <path d="M9 3v18M3 9h18M12 15l3-3 3 3"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"></rect><path d="M9 3v18M3 9h18M12 15l3-3 3 3"></path></svg>
         <span>목업 만들기</span>
       </button>
     </div>
     <div class="detail-info">
       <div class="detail-image-hint">
-        <span class="guide-hand">
-          <svg viewBox="0 0 32 38">
-            <path d="M16 32 C10 27 7 24 6 21 C5 18 8 16 11 19 L13 21 V7 C13 3 19 3 19 7 V17 C20 14 24 15 24 18 C26 16 29 18 28 21 L27 28 C26 33 23 35 19 35 H15 Z"/>
-          </svg>
-        </span>
+        <span class="guide-hand"><svg viewBox="0 0 32 38"><path d="M16 32 C10 27 7 24 6 21 C5 18 8 16 11 19 L13 21 V7 C13 3 19 3 19 7 V17 C20 14 24 15 24 18 C26 16 29 18 28 21 L27 28 C26 33 23 35 19 35 H15 Z"/></svg></span>
         <span>이미지를 눌러보세요</span>
       </div>
       <button class="back-button detail-back" id="detailBack">← 돌아가기</button>
@@ -537,9 +560,7 @@ body.light:has(#mockup.active) .theme-button{background:#080808}
 
 <script>
 function imgur(id){
-  return id && id!=="undefined"
-    ? "https://i.imgur.com/"+id+".png"
-    : null;
+return id&&id!=="undefined"?"https://i.imgur.com/"+id+".png":null;
 }
 
 const RAW_TEXTILES=[
@@ -681,10 +702,10 @@ description:[
 ];
 
 const TEXTILES=RAW_TEXTILES.map((p,i)=>({
-  id:i+1,title:p.title,colors:p.colors,
-  variants:p.variants.map(([name,id])=>({name,src:imgur(id)})),
-  intro:imgur(p.intro),
-  description:p.description.join("\n")
+id:i+1,title:p.title,colors:p.colors,
+variants:p.variants.map(([name,id])=>({name,src:imgur(id)})),
+intro:imgur(p.intro),
+description:p.description.join("\n")
 }));
 
 const HOME_IMAGE_IDS=[
@@ -710,199 +731,188 @@ let currentPattern=0,currentColor=0,currentPage="home",isLightMode=false;
 const floatingContainer=document.getElementById("floatingContainer");
 const floatingItems=[];
 const imageCache=new Map();
-
 const MOCKUP_ICON_SVG='<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"></rect><path d="M9 3v18M3 9h18M12 15l3-3 3 3"></path></svg>';
 const HAND_ICON_SVG='<span class="guide-hand"><svg viewBox="0 0 32 38"><path d="M16 32 C10 27 7 24 6 21 C5 18 8 16 11 19 L13 21 V7 C13 3 19 3 19 7 V17 C20 14 24 15 24 18 C26 16 29 18 28 21 L27 28 C26 33 23 35 19 35 H15 Z"></path></svg></span>';
 
 const MOCKUP_HINT_POSITIONS={
- dress:[{id:"background",x:15,y:14},{id:"dress",x:50,y:54}],
- tshirt:[{id:"background",x:15,y:14},{id:"shirt",x:50,y:42}],
- bag:[{id:"background",x:15,y:14},{id:"bag",x:51,y:48}],
- bedding:[
-  {id:"background",x:76,y:22},
-  {id:"pillow1",x:39,y:50},
-  {id:"pillow2",x:60,y:52},
-  {id:"pillow3",x:82,y:55},
-  {id:"duvet",x:51,y:77}
- ]
+dress:[{id:"background",x:15,y:14},{id:"dress",x:50,y:54}],
+tshirt:[{id:"background",x:15,y:14},{id:"shirt",x:50,y:42}],
+bag:[{id:"background",x:15,y:14},{id:"bag",x:51,y:48}],
+bedding:[
+{id:"background",x:76,y:22},
+{id:"pillow1",x:39,y:50},
+{id:"pillow2",x:60,y:52},
+{id:"pillow3",x:82,y:55},
+{id:"duvet",x:51,y:77}
+]
 };
 
 function getPattern(){return TEXTILES[currentPattern]}
 function getVariant(){return getPattern().variants[currentColor]}
 function preferredVariant(p,i){return p.variants[i]?.src?i:p.variants.findIndex(v=>v.src)}
-
 function showPage(page){
-  currentPage=page;
-  ["home","detail","fullscreen","mockup"].forEach(id=>
-    document.getElementById(id).classList.toggle("active",id===page)
-  );
-  document.getElementById("counter").textContent=page==="home"
-    ?"15 TEXTILES"
-    :`${String(currentPattern+1).padStart(2,"0")} / 15`;
+currentPage=page;
+["home","detail","fullscreen","mockup"].forEach(id=>document.getElementById(id).classList.toggle("active",id===page));
+document.getElementById("counter").textContent=page==="home"?"15 TEXTILES":`${String(currentPattern+1).padStart(2,"0")} / 15`;
 }
 
 function loadImage(src){
-  if(!src)return Promise.resolve(null);
-  if(imageCache.has(src))return imageCache.get(src);
-  const promise=new Promise(resolve=>{
-    const img=new Image();
-    img.onload=()=>resolve(img);
-    img.onerror=()=>resolve(null);
-    img.src=src;
-  });
-  imageCache.set(src,promise);
-  return promise;
+if(!src)return Promise.resolve(null);
+if(imageCache.has(src))return imageCache.get(src);
+const promise=new Promise(resolve=>{
+const img=new Image();
+img.decoding="async";
+img.onload=()=>resolve(img);
+img.onerror=()=>resolve(null);
+img.src=src;
+});
+imageCache.set(src,promise);
+return promise;
 }
 
-/* HOME FLOATING ITEMS */
+/* HOME */
 function homeImageForPattern(patternIndex){
-  const ids=HOME_IMAGE_IDS[patternIndex]||[];
-  const selected=isLightMode?(ids[1]||ids[0]):ids[0];
-  return selected&&selected!=="undefined"?selected:null;
+const ids=HOME_IMAGE_IDS[patternIndex]||[];
+const selected=isLightMode?(ids[1]||ids[0]):ids[0];
+return selected&&selected!=="undefined"?selected:null;
 }
 
 function updateHomeImages(){
-  floatingItems.forEach(d=>{
-    const id=homeImageForPattern(d.patternIndex);
-    const src=imgur(id);
-    if(src&&d.image.src!==src)d.image.src=src;
-  });
+floatingItems.forEach(d=>{
+const id=homeImageForPattern(d.patternIndex);
+const src=imgur(id);
+if(src&&d.image.src!==src)d.image.src=src;
+});
 }
 
 function createFloatingItems(){
-  floatingContainer.innerHTML="";
-  floatingItems.length=0;
-  const homeImages=TEXTILES.map((p,patternIndex)=>({patternIndex}));
-  const cols=Math.ceil(Math.sqrt(homeImages.length*innerWidth/innerHeight));
-  const rows=Math.ceil(homeImages.length/cols);
+floatingContainer.innerHTML="";
+floatingItems.length=0;
+const homeImages=TEXTILES.map((p,patternIndex)=>({patternIndex}));
+const cols=Math.ceil(Math.sqrt(homeImages.length*innerWidth/innerHeight));
+const rows=Math.ceil(homeImages.length/cols);
+homeImages.forEach(({patternIndex},index)=>{
+const p=TEXTILES[patternIndex];
+const item=document.createElement("div");
+item.className="floating-item";
+const img=document.createElement("img");
+img.alt=p.title;
+img.draggable=false;
+img.decoding="async";
+if("fetchPriority" in img)img.fetchPriority=index<5?"auto":"low";
+const initialId=homeImageForPattern(patternIndex);
+img.src=imgur(initialId)||"";
+item.appendChild(img);
+floatingContainer.appendChild(item);
+const size=item.getBoundingClientRect().width;
+const col=index%cols,row=Math.floor(index/cols);
+const cellW=innerWidth/cols,cellH=Math.max(1,(innerHeight-100)/rows);
+const x=col*cellW+(cellW-size)/2;
+const y=65+row*cellH+(cellH-size)/2;
+const angle=Math.random()*Math.PI*2;
+const speed=.8+Math.random();
+const d={
+element:item,image:img,patternIndex,x,y,size,
+vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed,
+paused:false,dragging:false,pointerId:null,
+startX:0,startY:0,originX:0,originY:0,moved:false
+};
+item.style.transform=`translate3d(${x}px,${y}px,0)`;
 
-  homeImages.forEach(({patternIndex},index)=>{
-    const p=TEXTILES[patternIndex];
-    const item=document.createElement("div");
-    item.className="floating-item";
-    const img=document.createElement("img");
-    img.alt=p.title;
-    img.draggable=false;
-    img.src=imgur(homeImageForPattern(patternIndex))||"";
-    item.appendChild(img);
-    floatingContainer.appendChild(item);
-
-    const size=item.getBoundingClientRect().width;
-    const col=index%cols,row=Math.floor(index/cols);
-    const cellW=innerWidth/cols,cellH=Math.max(1,(innerHeight-100)/rows);
-    const x=col*cellW+(cellW-size)/2;
-    const y=65+row*cellH+(cellH-size)/2;
-    const angle=Math.random()*Math.PI*2;
-    const speed=.8+Math.random();
-
-    const d={
-      element:item,image:img,patternIndex,x,y,size,
-      vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed,
-      paused:false,dragging:false,pointerId:null,
-      startX:0,startY:0,originX:0,originY:0,moved:false
-    };
-    item.style.transform=`translate3d(${x}px,${y}px,0)`;
-
-    item.addEventListener("pointerdown",e=>{
-      if(e.button!==0&&e.pointerType==="mouse")return;
-      d.dragging=true;
-      d.pointerId=e.pointerId;
-      d.startX=e.clientX;
-      d.startY=e.clientY;
-      d.originX=d.x;
-      d.originY=d.y;
-      d.moved=false;
-      d.paused=true;
-      item.setPointerCapture(e.pointerId);
-    });
-
-    item.addEventListener("pointermove",e=>{
-      if(!d.dragging||e.pointerId!==d.pointerId)return;
-      const dx=e.clientX-d.startX;
-      const dy=e.clientY-d.startY;
-      if(Math.hypot(dx,dy)>6)d.moved=true;
-      d.x=d.originX+dx;
-      d.y=d.originY+dy;
-      item.style.transform=`translate3d(${d.x}px,${d.y}px,0)`;
-    });
-
-    function release(e){
-      if(!d.dragging||e.pointerId!==d.pointerId)return;
-      d.dragging=false;
-      d.pointerId=null;
-      d.paused=false;
-      if(!d.moved)openDetail(patternIndex);
-    }
-
-    item.addEventListener("pointerup",release);
-    item.addEventListener("pointercancel",()=>{
-      d.dragging=false;
-      d.paused=false;
-    });
-    floatingItems.push(d);
-  });
+item.addEventListener("pointerdown",e=>{
+if(e.button!==0&&e.pointerType==="mouse")return;
+d.dragging=true;
+d.pointerId=e.pointerId;
+d.startX=e.clientX;
+d.startY=e.clientY;
+d.originX=d.x;
+d.originY=d.y;
+d.moved=false;
+d.paused=true;
+item.setPointerCapture(e.pointerId);
+});
+item.addEventListener("pointermove",e=>{
+if(!d.dragging||e.pointerId!==d.pointerId)return;
+const dx=e.clientX-d.startX;
+const dy=e.clientY-d.startY;
+if(Math.hypot(dx,dy)>6)d.moved=true;
+d.x=d.originX+dx;
+d.y=d.originY+dy;
+item.style.transform=`translate3d(${d.x}px,${d.y}px,0)`;
+});
+function release(e){
+if(!d.dragging||e.pointerId!==d.pointerId)return;
+d.dragging=false;
+d.pointerId=null;
+d.paused=false;
+if(!d.moved)openDetail(patternIndex);
+}
+item.addEventListener("pointerup",release);
+item.addEventListener("pointercancel",()=>{
+d.dragging=false;
+d.paused=false;
+});
+floatingItems.push(d);
+});
 }
 
 let lastFrame=performance.now();
-
 function animateFloating(now){
-  const dt=Math.min((now-lastFrame)/16.67,2);
-  lastFrame=now;
-  if(currentPage==="home"){
-    floatingItems.forEach(d=>{
-      if(d.dragging||d.paused)return;
-      d.x+=d.vx*dt;
-      d.y+=d.vy*dt;
-      const maxX=innerWidth-d.size-8;
-      const maxY=innerHeight-d.size-35;
-      if(d.x<8){d.x=8;d.vx=Math.abs(d.vx)}
-      if(d.x>maxX){d.x=maxX;d.vx=-Math.abs(d.vx)}
-      if(d.y<65){d.y=65;d.vy=Math.abs(d.vy)}
-      if(d.y>maxY){d.y=maxY;d.vy=-Math.abs(d.vy)}
-      d.element.style.transform=`translate3d(${d.x}px,${d.y}px,0)`;
-    });
-  }
-  requestAnimationFrame(animateFloating);
+const dt=Math.min((now-lastFrame)/16.67,2);
+lastFrame=now;
+if(currentPage==="home"){
+floatingItems.forEach(d=>{
+if(d.dragging||d.paused)return;
+d.x+=d.vx*dt;
+d.y+=d.vy*dt;
+const maxX=innerWidth-d.size-8,maxY=innerHeight-d.size-35;
+if(d.x<8){d.x=8;d.vx=Math.abs(d.vx)}
+if(d.x>maxX){d.x=maxX;d.vx=-Math.abs(d.vx)}
+if(d.y<65){d.y=65;d.vy=Math.abs(d.vy)}
+if(d.y>maxY){d.y=maxY;d.vy=-Math.abs(d.vy)}
+d.element.style.transform=`translate3d(${d.x}px,${d.y}px,0)`;
+});
+}
+requestAnimationFrame(animateFloating);
 }
 
 /* DETAIL */
 const detailImage=document.getElementById("detailImage");
 let detailToken=0;
-
 async function updateDetailImage(){
-  const token=++detailToken;
-  const p=getPattern();
-  const src=p.intro||p.variants.find(v=>v.src)?.src;
-  const img=await loadImage(src);
-  if(token!==detailToken)return;
-  if(!img){
-    detailImage.style.backgroundImage="none";
-    detailImage.style.backgroundColor=p.colors[0]||"#222";
-    return;
-  }
-  detailImage.style.backgroundImage=`url("${src}")`;
-  detailImage.style.backgroundSize="cover";
-  detailImage.style.backgroundPosition="center";
-  detailImage.style.backgroundRepeat="no-repeat";
+const token=++detailToken;
+const p=getPattern();
+const src=p.intro||p.variants.find(v=>v.src)?.src;
+const img=await loadImage(src);
+if(token!==detailToken)return;
+if(!img){
+detailImage.style.backgroundImage="none";
+detailImage.style.backgroundColor=p.colors[0]||"#222";
+return;
 }
-
+detailImage.style.backgroundImage=`url("${src}")`;
+detailImage.style.backgroundSize="cover";
+detailImage.style.backgroundPosition="center";
+detailImage.style.backgroundRepeat="no-repeat";
+}
 function openDetail(index){
-  currentPattern=index;
-  currentColor=preferredVariant(getPattern(),isLightMode?1:0);
-  document.getElementById("detailTitle").textContent=getPattern().title;
-  document.getElementById("detailNumber").textContent=
-    `COLLECTION / ${String(index+1).padStart(2,"0")}`;
-  document.getElementById("detailDescription").textContent=getPattern().description;
-  showPage("detail");
-  updateDetailImage();
+currentPattern=index;
+currentColor=preferredVariant(getPattern(),isLightMode?1:0);
+document.getElementById("detailTitle").textContent=getPattern().title;
+document.getElementById("detailNumber").textContent=`COLLECTION / ${String(index+1).padStart(2,"0")}`;
+document.getElementById("detailDescription").textContent=getPattern().description;
+showPage("detail");
+updateDetailImage();
+const upcoming=getVariant()?.src;
+if(upcoming)loadImage(upcoming);
 }
 
-/* FULLSCREEN REPEAT */
+/* FULLSCREEN */
 const patternLayer=document.getElementById("patternLayer");
 const colorControls=document.getElementById("colorControls");
-let offsetX=0,offsetY=0,zoom=1,activeImage=null,activeImageSrc=null;
-let tilePool=[],patternToken=0;
+const fullscreen=document.getElementById("fullscreen");
 
+let offsetX=0,offsetY=0,zoom=1,activeImage=null,activeImageSrc=null,patternToken=0;
 const repeatCanvas=document.createElement("canvas");
 repeatCanvas.className="repeat-canvas";
 patternLayer.appendChild(repeatCanvas);
@@ -910,333 +920,347 @@ const repeatCtx=repeatCanvas.getContext("2d");
 let fullscreenTileCache=null;
 let fullscreenTileCacheKey="";
 
+function makeCanvas(w,h){
+const c=document.createElement("canvas");
+c.width=Math.max(1,Math.round(w));
+c.height=Math.max(1,Math.round(h));
+return c;
+}
+
 function ensureTiles(count){
-  if(count===0){
-    fullscreenTileCache=null;
-    fullscreenTileCacheKey="";
-    repeatCtx.clearRect(0,0,repeatCanvas.width,repeatCanvas.height);
-  }
+if(count===0){
+fullscreenTileCache=null;
+fullscreenTileCacheKey="";
+repeatCtx.clearRect(0,0,repeatCanvas.width,repeatCanvas.height);
+}
 }
 
 /* SHARED SEAM CORRECTION */
 const textileSeamProfiles=new WeakMap();
-
 function textileSeamProfile(image){
-  if(textileSeamProfiles.has(image))return textileSeamProfiles.get(image);
-  const iw=image.naturalWidth||image.width||240;
-  const ih=image.naturalHeight||image.height||240;
-  let result={x:0,y:0};
-
-  try{
-    const edgeX=Math.max(1,Math.min(2,Math.floor(iw/8)));
-    const edgeY=Math.max(1,Math.min(2,Math.floor(ih/8)));
-    const inX=Math.max(edgeX+1,Math.min(iw-edgeX,Math.round(iw*.009)));
-    const inY=Math.max(edgeY+1,Math.min(ih-edgeY,Math.round(ih*.009)));
-
-    const vertical=makeCanvas(16,64);
-    const vc=vertical.getContext("2d",{willReadFrequently:true});
-    for(let i=0;i<4;i++){
-      const sx=i===0?0:i===1?inX:i===2?iw-edgeX:iw-inX-edgeX;
-      vc.drawImage(
-        image,Math.max(0,Math.min(iw-edgeX,sx)),0,edgeX,ih,
-        i*4,0,4,64
-      );
-    }
-
-    const horizontal=makeCanvas(64,16);
-    const hc=horizontal.getContext("2d",{willReadFrequently:true});
-    for(let i=0;i<4;i++){
-      const sy=i===0?0:i===1?inY:i===2?ih-edgeY:ih-inY-edgeY;
-      hc.drawImage(
-        image,0,Math.max(0,Math.min(ih-edgeY,sy)),iw,edgeY,
-        0,i*4,64,4
-      );
-    }
-
-    const vx=vc.getImageData(0,0,16,64).data;
-    const hy=hc.getImageData(0,0,64,16).data;
-
-    function score(data,w,outer,inside,verticalStrip){
-      let fringe=0;
-      const n=64;
-      for(let k=0;k<n;k++){
-        const a=(verticalStrip
-          ?(k*w+outer*4+1)
-          :(outer*4+1)*w+k)*4;
-        const b=(verticalStrip
-          ?(k*w+inside*4+1)
-          :(inside*4+1)*w+k)*4;
-
-        const bright=
-          data[a]>=239&&data[a+1]>=239&&data[a+2]>=239;
-        const transparent=data[a+3]<225;
-        const innerColored=
-          Math.min(data[b],data[b+1],data[b+2])<225&&data[b+3]>200;
-        const innerOpaque=data[b+3]>235;
-        const outerLight=.2126*data[a]+.7152*data[a+1]+.0722*data[a+2];
-        const innerLight=.2126*data[b]+.7152*data[b+1]+.0722*data[b+2];
-        const lightHalo=
-          outerLight>175&&outerLight-innerLight>25&&innerOpaque;
-
-        if((bright&&innerColored)||(transparent&&innerOpaque)||lightHalo){
-          fringe++;
-        }
-      }
-      return fringe/n;
-    }
-
-    const xScore=Math.max(
-      score(vx,16,0,1,true),
-      score(vx,16,2,3,true)
-    );
-    const yScore=Math.max(
-      score(hy,64,0,1,false),
-      score(hy,64,2,3,false)
-    );
-    result={
-      x:xScore>.23?2:xScore>.09?1:0,
-      y:yScore>.23?2:yScore>.09?1:0
-    };
-  }catch(error){
-    result={x:2,y:2};
-  }
-
-  textileSeamProfiles.set(image,result);
-  return result;
+if(textileSeamProfiles.has(image))return textileSeamProfiles.get(image);
+const iw=image.naturalWidth||image.width||240;
+const ih=image.naturalHeight||image.height||240;
+let result={x:0,y:0};
+try{
+const edgeX=Math.max(1,Math.min(2,Math.floor(iw/8)));
+const edgeY=Math.max(1,Math.min(2,Math.floor(ih/8)));
+const inX=Math.max(edgeX+1,Math.min(iw-edgeX,Math.round(iw*.009)));
+const inY=Math.max(edgeY+1,Math.min(ih-edgeY,Math.round(ih*.009)));
+const vertical=makeCanvas(16,64);
+const vc=vertical.getContext("2d",{willReadFrequently:true});
+for(let i=0;i<4;i++){
+const sx=i===0?0:i===1?inX:i===2?iw-edgeX:iw-inX-edgeX;
+vc.drawImage(image,Math.max(0,Math.min(iw-edgeX,sx)),0,edgeX,ih,i*4,0,4,64);
+}
+const horizontal=makeCanvas(64,16);
+const hc=horizontal.getContext("2d",{willReadFrequently:true});
+for(let i=0;i<4;i++){
+const sy=i===0?0:i===1?inY:i===2?ih-edgeY:ih-inY-edgeY;
+hc.drawImage(image,0,Math.max(0,Math.min(ih-edgeY,sy)),iw,edgeY,0,i*4,64,4);
+}
+const vx=vc.getImageData(0,0,16,64).data;
+const hy=hc.getImageData(0,0,64,16).data;
+function score(data,w,outer,inside,verticalStrip){
+let fringe=0;
+for(let k=0;k<64;k++){
+const a=(verticalStrip?(k*w+outer*4+1):(outer*4+1)*w+k)*4;
+const b=(verticalStrip?(k*w+inside*4+1):(inside*4+1)*w+k)*4;
+const bright=data[a]>=239&&data[a+1]>=239&&data[a+2]>=239;
+const transparent=data[a+3]<225;
+const innerColored=Math.min(data[b],data[b+1],data[b+2])<225&&data[b+3]>200;
+const innerOpaque=data[b+3]>235;
+const outerLight=.2126*data[a]+.7152*data[a+1]+.0722*data[a+2];
+const innerLight=.2126*data[b]+.7152*data[b+1]+.0722*data[b+2];
+const lightHalo=outerLight>175&&outerLight-innerLight>25&&innerOpaque;
+if((bright&&innerColored)||(transparent&&innerOpaque)||lightHalo)fringe++;
+}
+return fringe/64;
+}
+const xScore=Math.max(score(vx,16,0,1,true),score(vx,16,2,3,true));
+const yScore=Math.max(score(hy,64,0,1,false),score(hy,64,2,3,false));
+result={x:xScore>.23?2:xScore>.09?1:0,y:yScore>.23?2:yScore>.09?1:0};
+}catch(error){
+result={x:2,y:2};
+}
+textileSeamProfiles.set(image,result);
+return result;
 }
 
-function paintSeamGuardedTile(ctx,image,width,height,displayScale=1){
-  const seam=textileSeamProfile(image);
-  const iw=image.naturalWidth||image.width||240;
-  const ih=image.naturalHeight||image.height||240;
-  const sw=Math.max(1,Math.round(width));
-  const sh=Math.max(1,Math.round(height));
+function paintSeamGuardedTile(ctx,image,width,height){
+const seam=textileSeamProfile(image);
+const iw=image.naturalWidth||image.width||240;
+const ih=image.naturalHeight||image.height||240;
+const sw=Math.max(1,Math.round(width));
+const sh=Math.max(1,Math.round(height));
+const sourceTrimX=seam.x
+?Math.min(Math.floor(iw/8),Math.max(seam.x,Math.ceil((seam.x+.75)*iw/sw)))
+:0;
+const sourceTrimY=seam.y
+?Math.min(Math.floor(ih/8),Math.max(seam.y,Math.ceil((seam.y+.75)*ih/sh)))
+:0;
+ctx.imageSmoothingEnabled=true;
+ctx.imageSmoothingQuality="high";
+if(!sourceTrimX&&!sourceTrimY){
+ctx.drawImage(image,0,0,sw,sh);
+return;
+}
+ctx.drawImage(
+image,
+sourceTrimX,sourceTrimY,
+Math.max(1,iw-2*sourceTrimX),
+Math.max(1,ih-2*sourceTrimY),
+0,0,sw,sh
+);
+}
 
-  const sourceTrimX=seam.x
-    ?Math.min(Math.floor(iw/8),Math.max(seam.x,Math.ceil((seam.x+.75)*iw/sw)))
-    :0;
-  const sourceTrimY=seam.y
-    ?Math.min(Math.floor(ih/8),Math.max(seam.y,Math.ceil((seam.y+.75)*ih/sh)))
-    :0;
-
-  ctx.imageSmoothingEnabled=true;
-  ctx.imageSmoothingQuality="high";
-
-  if(!sourceTrimX&&!sourceTrimY){
-    ctx.drawImage(image,0,0,sw,sh);
-    return;
-  }
-
-  ctx.drawImage(
-    image,
-    sourceTrimX,sourceTrimY,
-    Math.max(1,iw-2*sourceTrimX),
-    Math.max(1,ih-2*sourceTrimY),
-    0,0,sw,sh
-  );
+/* RENDER ONLY ONCE PER FRAME */
+let fullscreenDrawQueued=false;
+function schedulePatternDraw(){
+if(fullscreenDrawQueued)return;
+fullscreenDrawQueued=true;
+requestAnimationFrame(()=>{
+fullscreenDrawQueued=false;
+drawPatternTiles();
+});
 }
 
 function drawPatternTiles(){
-  if(currentPage!=="fullscreen"||!activeImage)return;
-
-  const W=Math.max(1,Math.ceil(patternLayer.clientWidth));
-  const H=Math.max(1,Math.ceil(patternLayer.clientHeight));
-  const dpr=Math.min(window.devicePixelRatio||1,2);
-  const pw=Math.round(W*dpr);
-  const ph=Math.round(H*dpr);
-
-  if(repeatCanvas.width!==pw||repeatCanvas.height!==ph){
-    repeatCanvas.width=pw;
-    repeatCanvas.height=ph;
-  }
-
-  const iw=activeImage.naturalWidth||240;
-  const ih=activeImage.naturalHeight||240;
-  const cellW=Math.max(1,Math.round(240*zoom));
-  const cellH=Math.max(1,Math.round(cellW*ih/iw));
-  const tw=Math.max(1,Math.round(cellW*dpr));
-  const th=Math.max(1,Math.round(cellH*dpr));
-  const cacheKey=activeImageSrc+":"+tw+":"+th;
-
-  if(cacheKey!==fullscreenTileCacheKey){
-    const tile=document.createElement("canvas");
-    tile.width=tw;
-    tile.height=th;
-    paintSeamGuardedTile(tile.getContext("2d"),activeImage,tw,th,dpr);
-    fullscreenTileCache=tile;
-    fullscreenTileCacheKey=cacheKey;
-  }
-
-  const ctx=repeatCtx;
-  ctx.setTransform(1,0,0,1,0,0);
-  ctx.clearRect(0,0,pw,ph);
-  const pattern=ctx.createPattern(fullscreenTileCache,"repeat");
-
-  if(pattern){
-    const tx=Math.round(offsetX*dpr);
-    const ty=Math.round(offsetY*dpr);
-    ctx.save();
-    ctx.translate(tx,ty);
-    ctx.fillStyle=pattern;
-    ctx.fillRect(-tx,-ty,pw,ph);
-    ctx.restore();
-  }
-
-  document.getElementById("zoomValue").textContent=
-    Math.round(zoom*100)+"%";
+if(currentPage!=="fullscreen"||!activeImage)return;
+const W=Math.max(1,Math.ceil(patternLayer.clientWidth));
+const H=Math.max(1,Math.ceil(patternLayer.clientHeight));
+const dpr=Math.min(
+window.devicePixelRatio||1,
+(navigator.maxTouchPoints||0)>1?1.5:2
+);
+const pw=Math.round(W*dpr),ph=Math.round(H*dpr);
+if(repeatCanvas.width!==pw||repeatCanvas.height!==ph){
+repeatCanvas.width=pw;
+repeatCanvas.height=ph;
+}
+const iw=activeImage.naturalWidth||240;
+const ih=activeImage.naturalHeight||240;
+const cellW=Math.max(1,Math.round(240*zoom));
+const cellH=Math.max(1,Math.round(cellW*ih/iw));
+const tw=Math.max(1,Math.round(cellW*dpr));
+const th=Math.max(1,Math.round(cellH*dpr));
+const cacheKey=activeImageSrc+":"+tw+":"+th;
+if(cacheKey!==fullscreenTileCacheKey){
+const tile=makeCanvas(tw,th);
+paintSeamGuardedTile(tile.getContext("2d"),activeImage,tw,th);
+fullscreenTileCache=tile;
+fullscreenTileCacheKey=cacheKey;
+}
+repeatCtx.setTransform(1,0,0,1,0,0);
+repeatCtx.clearRect(0,0,pw,ph);
+const pattern=repeatCtx.createPattern(fullscreenTileCache,"repeat");
+if(pattern){
+const tx=Math.round(offsetX*dpr);
+const ty=Math.round(offsetY*dpr);
+repeatCtx.save();
+repeatCtx.translate(tx,ty);
+repeatCtx.fillStyle=pattern;
+repeatCtx.fillRect(-tx,-ty,pw,ph);
+repeatCtx.restore();
+}
+document.getElementById("zoomValue").textContent=Math.round(zoom*100)+"%";
 }
 
 async function updatePattern(){
-  const token=++patternToken;
-  const variant=getVariant();
-  document.getElementById("fullVariantTitle").textContent=variant?.name||"";
-  if(!variant?.src){
-    activeImage=null;
-    activeImageSrc=null;
-    ensureTiles(0);
-    return;
-  }
-  const img=await loadImage(variant.src);
-  if(token!==patternToken)return;
-  if(!img){
-    activeImage=null;
-    activeImageSrc=null;
-    ensureTiles(0);
-    return;
-  }
-  activeImage=img;
-  activeImageSrc=variant.src;
-  drawPatternTiles();
+const token=++patternToken;
+const variant=getVariant();
+document.getElementById("fullVariantTitle").textContent=variant?.name||"";
+if(!variant?.src){activeImage=null;activeImageSrc=null;ensureTiles(0);return}
+const img=await loadImage(variant.src);
+if(token!==patternToken)return;
+if(!img){activeImage=null;activeImageSrc=null;ensureTiles(0);return}
+activeImage=img;
+activeImageSrc=variant.src;
+drawPatternTiles();
 }
 
 function renderColors(){
-  colorControls.innerHTML="";
-  getPattern().variants.forEach((v,i)=>{
-    const b=document.createElement("button");
-    b.className="color-swatch";
-    b.style.background=getPattern().colors[i]||"#888";
-    b.setAttribute("aria-label",v.name);
-    if(!v.src){
-      b.disabled=true;
-      b.title="이미지 미등록";
-    }else{
-      if(i===currentColor)b.classList.add("active");
-      b.onclick=e=>{
-        e.stopPropagation();
-        currentColor=i;
-        updatePattern();
-        renderColors();
-      };
-    }
-    colorControls.appendChild(b);
-  });
-
-  const mockupButton=document.createElement("button");
-  mockupButton.type="button";
-  mockupButton.className="mockup-entry";
-  mockupButton.setAttribute("aria-label","목업 만들기");
-  mockupButton.title="목업 만들기";
-  mockupButton.innerHTML=MOCKUP_ICON_SVG+"<span>목업 만들기</span>";
-  mockupButton.onclick=e=>{
-    e.stopPropagation();
-    openMockup();
-  };
-  colorControls.appendChild(mockupButton);
+colorControls.innerHTML="";
+getPattern().variants.forEach((v,i)=>{
+const b=document.createElement("button");
+b.className="color-swatch";
+b.style.background=getPattern().colors[i]||"#888";
+b.setAttribute("aria-label",v.name);
+if(!v.src){
+b.disabled=true;
+b.title="이미지 미등록";
+}else{
+if(i===currentColor)b.classList.add("active");
+b.onclick=e=>{
+e.stopPropagation();
+currentColor=i;
+updatePattern();
+renderColors();
+};
+}
+colorControls.appendChild(b);
+});
+const mockupButton=document.createElement("button");
+mockupButton.type="button";
+mockupButton.className="mockup-entry";
+mockupButton.setAttribute("aria-label","목업 만들기");
+mockupButton.title="목업 만들기";
+mockupButton.innerHTML=MOCKUP_ICON_SVG+"<span>목업 만들기</span>";
+mockupButton.onclick=e=>{
+e.stopPropagation();
+openMockup();
+};
+colorControls.appendChild(mockupButton);
 }
 
 function openFullscreen(){
-  offsetX=0;
-  offsetY=0;
-  zoom=1;
-  document.getElementById("fullTitle").textContent=getPattern().title;
-  showPage("fullscreen");
-  updatePattern();
-  renderColors();
+offsetX=0;
+offsetY=0;
+zoom=1;
+document.getElementById("fullTitle").textContent=getPattern().title;
+showPage("fullscreen");
+updatePattern();
+renderColors();
 }
 
+/* MOUSE DRAG */
 let dragging=false,dragX=0,dragY=0;
-const fullscreen=document.getElementById("fullscreen");
-
 fullscreen.addEventListener("pointerdown",e=>{
-  if(e.target.closest("button"))return;
-  dragging=true;
-  dragX=e.clientX;
-  dragY=e.clientY;
-  fullscreen.classList.add("dragging");
-  fullscreen.setPointerCapture(e.pointerId);
+if(e.pointerType==="touch"||e.target.closest("button"))return;
+if(e.button!==0)return;
+dragging=true;
+dragX=e.clientX;
+dragY=e.clientY;
+fullscreen.classList.add("dragging");
+fullscreen.setPointerCapture(e.pointerId);
 });
-
 fullscreen.addEventListener("pointermove",e=>{
-  if(!dragging)return;
-  offsetX+=e.clientX-dragX;
-  offsetY+=e.clientY-dragY;
-  dragX=e.clientX;
-  dragY=e.clientY;
-  drawPatternTiles();
+if(e.pointerType==="touch"||!dragging)return;
+offsetX+=e.clientX-dragX;
+offsetY+=e.clientY-dragY;
+dragX=e.clientX;
+dragY=e.clientY;
+schedulePatternDraw();
 });
-
 function stopDrag(){
-  dragging=false;
-  fullscreen.classList.remove("dragging");
+dragging=false;
+fullscreen.classList.remove("dragging");
 }
 fullscreen.addEventListener("pointerup",stopDrag);
 fullscreen.addEventListener("pointercancel",stopDrag);
 
-function setZoom(next,x,y){
-  const old=zoom;
-  zoom=Math.max(.15,Math.min(next,8));
-  const ratio=zoom/old;
-  offsetX=x-(x-offsetX)*ratio;
-  offsetY=y-(y-offsetY)*ratio;
-  drawPatternTiles();
+/* IPAD FULLSCREEN PINCH */
+let fullTouchGesture=null;
+let fullTouchLast=null;
+function fullTouchPair(touches){
+const a=touches[0],b=touches[1];
+return{
+centerX:(a.clientX+b.clientX)/2,
+centerY:(a.clientY+b.clientY)/2,
+distance:Math.max(1,Math.hypot(b.clientX-a.clientX,b.clientY-a.clientY))
+};
 }
-
-fullscreen.addEventListener("wheel",e=>{
-  e.preventDefault();
-  setZoom(
-    zoom*(e.deltaY<0?1.1:.9),
-    e.clientX,
-    e.clientY
-  );
+function startFullPinch(touches){
+const p=fullTouchPair(touches);
+fullTouchGesture={...p,zoom,offsetX,offsetY};
+fullTouchLast=null;
+}
+fullscreen.addEventListener("touchstart",e=>{
+if(e.target.closest("button"))return;
+if(e.touches.length===2){
+e.preventDefault();
+startFullPinch(e.touches);
+}else if(e.touches.length===1){
+e.preventDefault();
+fullTouchGesture=null;
+fullTouchLast={x:e.touches[0].clientX,y:e.touches[0].clientY};
+}
 },{passive:false});
+fullscreen.addEventListener("touchmove",e=>{
+if(e.target.closest("button"))return;
+if(e.touches.length===2){
+e.preventDefault();
+if(!fullTouchGesture)startFullPinch(e.touches);
+const p=fullTouchPair(e.touches);
+const g=fullTouchGesture;
+zoom=Math.max(.15,Math.min(8,g.zoom*p.distance/g.distance));
+const ratio=zoom/g.zoom;
+offsetX=p.centerX-(g.centerX-g.offsetX)*ratio;
+offsetY=p.centerY-(g.centerY-g.offsetY)*ratio;
+schedulePatternDraw();
+}else if(e.touches.length===1){
+e.preventDefault();
+const t=e.touches[0];
+if(fullTouchLast){
+offsetX+=t.clientX-fullTouchLast.x;
+offsetY+=t.clientY-fullTouchLast.y;
+schedulePatternDraw();
+}
+fullTouchLast={x:t.clientX,y:t.clientY};
+fullTouchGesture=null;
+}
+},{passive:false});
+function endFullTouch(e){
+if(e.touches.length===1){
+fullTouchLast={x:e.touches[0].clientX,y:e.touches[0].clientY};
+}else{
+fullTouchLast=null;
+}
+fullTouchGesture=null;
+}
+fullscreen.addEventListener("touchend",endFullTouch,{passive:false});
+fullscreen.addEventListener("touchcancel",endFullTouch,{passive:false});
+["gesturestart","gesturechange","gestureend"].forEach(name=>{
+fullscreen.addEventListener(name,e=>e.preventDefault(),{passive:false});
+});
 
-document.getElementById("zoomIn").onclick=()=>
-  setZoom(zoom*1.25,innerWidth/2,innerHeight/2);
-document.getElementById("zoomOut").onclick=()=>
-  setZoom(zoom/1.25,innerWidth/2,innerHeight/2);
+function setZoom(next,x,y){
+const old=zoom;
+zoom=Math.max(.15,Math.min(next,8));
+const ratio=zoom/old;
+offsetX=x-(x-offsetX)*ratio;
+offsetY=y-(y-offsetY)*ratio;
+schedulePatternDraw();
+}
+fullscreen.addEventListener("wheel",e=>{
+e.preventDefault();
+setZoom(zoom*(e.deltaY<0?1.1:.9),e.clientX,e.clientY);
+},{passive:false});
+document.getElementById("zoomIn").onclick=()=>setZoom(zoom*1.25,innerWidth/2,innerHeight/2);
+document.getElementById("zoomOut").onclick=()=>setZoom(zoom/1.25,innerWidth/2,innerHeight/2);
 
-/* MOCKUP DATA */
+/* MOCKUP ASSETS */
 const MOCKUP_DATA={
-  dress:{label:"원피스",photo:"L3f0QnO",layers:[
-    {id:"background",label:"원피스 배경",kind:"background",image:"c9mppTe"},
-    {id:"dress",label:"원피스",kind:"pattern",image:"8WyIJit"},
-    {id:"trim",label:"원피스 등",kind:"auto",image:"kJus2wT",parent:"dress"}
-  ]},
-  tshirt:{label:"티셔츠",photo:"qZdutxW",layers:[
-    {id:"background",label:"티셔츠 배경",kind:"background",image:"EJrbOE2"},
-    {id:"shirt",label:"티셔츠",kind:"pattern",image:"Zi9mmlP"},
-    {id:"neck",label:"티셔츠 목",kind:"auto",image:"BUmCBsB",parent:"shirt"}
-  ]},
-  bag:{label:"가방",photo:"6AHNPUD",layers:[
-    {id:"background",label:"가방 배경",kind:"background",image:"bH2Rijk"},
-    {id:"bag",label:"가방",kind:"pattern",image:"qhqC5if"}
-  ]},
-  bedding:{label:"침구",photo:"gGeU7FO",layers:[
-    {id:"background",label:"침구 배경",kind:"background",image:"2Ma427Q"},
-    {id:"duvet",label:"이불",kind:"both",image:"44UYYXO"},
-    {id:"pillow1",label:"베개 1",kind:"both",image:"grBTgUl"},
-    {id:"pillow2",label:"베개 2",kind:"both",image:"bIhY0Vk"},
-    {id:"pillow3",label:"베개 3",kind:"both",image:"aEvnhhF"}
-  ]}
+dress:{label:"원피스",photo:"L3f0QnO",layers:[
+{id:"background",label:"원피스 배경",kind:"background",image:"c9mppTe"},
+{id:"dress",label:"원피스",kind:"pattern",image:"8WyIJit"},
+{id:"trim",label:"원피스 등",kind:"auto",image:"kJus2wT",parent:"dress"}
+]},
+tshirt:{label:"티셔츠",photo:"qZdutxW",layers:[
+{id:"background",label:"티셔츠 배경",kind:"background",image:"EJrbOE2"},
+{id:"shirt",label:"티셔츠",kind:"pattern",image:"Zi9mmlP"},
+{id:"neck",label:"티셔츠 목",kind:"auto",image:"BUmCBsB",parent:"shirt"}
+]},
+bag:{label:"가방",photo:"6AHNPUD",layers:[
+{id:"background",label:"가방 배경",kind:"background",image:"bH2Rijk"},
+{id:"bag",label:"가방",kind:"pattern",image:"qhqC5if"}
+]},
+bedding:{label:"침구",photo:"gGeU7FO",layers:[
+{id:"background",label:"침구 배경",kind:"background",image:"2Ma427Q"},
+{id:"duvet",label:"이불",kind:"both",image:"44UYYXO"},
+{id:"pillow1",label:"베개 1",kind:"both",image:"grBTgUl"},
+{id:"pillow2",label:"베개 2",kind:"both",image:"bIhY0Vk"},
+{id:"pillow3",label:"베개 3",kind:"both",image:"aEvnhhF"}
+]}
 };
 
+/* MOCKUP STATE */
 const mockupCanvas=document.getElementById("mockupCanvas");
 const mockupCtx=mockupCanvas.getContext("2d",{willReadFrequently:true});
 const mockupTypeNav=document.getElementById("mockupTypeNav");
 const inspectorContent=document.getElementById("mockupInspectorContent");
 const mockupStatus=document.getElementById("mockupStatus");
 const mockupHintLayer=document.getElementById("mockupHintLayer");
-
 let mockupType="dress";
 let selectedMockupLayer=null;
 let mockupVersion=0;
@@ -1250,1246 +1274,1215 @@ let mockupAssetErrors=[];
 const MASK_SAMPLE_SIZE=256;
 
 function dismissMockupHints(){
-  mockupHintsDismissed=true;
-  mockupHintLayer.classList.add("is-hidden");
+mockupHintsDismissed=true;
+mockupHintLayer.classList.add("is-hidden");
 }
-
 function locateHintTip(point){
-  const preferred={x:point.x/100,y:point.y/100};
-  if(mockupType!=="bedding"||point.id==="background")return preferred;
-  const mask=mockupLayerMasks[point.id];
-  if(!mask)return preferred;
-
-  const {sample,sampleW:w,sampleH:h}=mask;
-  const alphaAt=(x,y)=>sample[(y*w+x)*4+3];
-  let best=null,score=Infinity;
-
-  for(let y=4;y<h-4;y+=2){
-    for(let x=4;x<w-4;x+=2){
-      if(alphaAt(x,y)<215)continue;
-      if(
-        alphaAt(x-4,y)<160||
-        alphaAt(x+4,y)<160||
-        alphaAt(x,y-4)<160||
-        alphaAt(x,y+4)<160
-      )continue;
-
-      const nx=x/w,ny=y/h;
-      if(point.id.startsWith("pillow")&&(ny<.35||ny>.76))continue;
-      const d=(nx-preferred.x)**2+(ny-preferred.y)**2;
-      if(d<score){
-        score=d;
-        best={x:nx,y:ny};
-      }
-    }
-  }
-  return best||preferred;
+const preferred={x:point.x/100,y:point.y/100};
+if(mockupType!=="bedding"||point.id==="background")return preferred;
+const mask=mockupLayerMasks[point.id];
+if(!mask)return preferred;
+const {sample,sampleW:w,sampleH:h}=mask;
+const alphaAt=(x,y)=>sample[(y*w+x)*4+3];
+let best=null,score=Infinity;
+for(let y=4;y<h-4;y+=2){
+for(let x=4;x<w-4;x+=2){
+if(alphaAt(x,y)<215)continue;
+if(alphaAt(x-4,y)<160||alphaAt(x+4,y)<160||
+alphaAt(x,y-4)<160||alphaAt(x,y+4)<160)continue;
+const nx=x/w,ny=y/h;
+if(point.id.startsWith("pillow")&&(ny<.35||ny>.76))continue;
+const d=(nx-preferred.x)**2+(ny-preferred.y)**2;
+if(d<score){score=d;best={x:nx,y:ny}}
+}
+}
+return best||preferred;
 }
 
 function renderMockupHints(){
-  const points=MOCKUP_HINT_POSITIONS[mockupType]||[];
-  mockupHintLayer.innerHTML="";
-
-  const stage=document.getElementById("mockupStage").getBoundingClientRect();
-  const canvasRect=mockupCanvas.getBoundingClientRect();
-  const width=mockupCanvas.width;
-  const height=mockupCanvas.height;
-  const ratio=Math.min(canvasRect.width/width,canvasRect.height/height);
-  const imageLeft=canvasRect.left-stage.left+(canvasRect.width-width*ratio)/2;
-  const imageTop=canvasRect.top-stage.top+(canvasRect.height-height*ratio)/2;
-
-  points.forEach(point=>{
-    const layer=activeMockupConfig().layers.find(l=>l.id===point.id);
-    if(!layer)return;
-    const tip=locateHintTip(point);
-    const button=document.createElement("button");
-    button.type="button";
-    button.className="mockup-hint-button";
-    button.style.left=(imageLeft+tip.x*width*ratio-9)+"px";
-    button.style.top=(imageTop+tip.y*height*ratio+9)+"px";
-    button.setAttribute("aria-label",layer.label+" 편집");
-    button.title=layer.label;
-    button.innerHTML=HAND_ICON_SVG;
-    button.onclick=e=>{
-      e.stopPropagation();
-      dismissMockupHints();
-      setMockupSelection(layer.id);
-    };
-    mockupHintLayer.appendChild(button);
-  });
-
-  mockupHintLayer.classList.toggle(
-    "is-hidden",
-    mockupHintsDismissed||!points.length
-  );
+const points=MOCKUP_HINT_POSITIONS[mockupType]||[];
+mockupHintLayer.innerHTML="";
+const stage=document.getElementById("mockupStage").getBoundingClientRect();
+const canvasRect=mockupCanvas.getBoundingClientRect();
+const width=mockupCanvas.width,height=mockupCanvas.height;
+const ratio=Math.min(canvasRect.width/width,canvasRect.height/height);
+const imageLeft=canvasRect.left-stage.left+(canvasRect.width-width*ratio)/2;
+const imageTop=canvasRect.top-stage.top+(canvasRect.height-height*ratio)/2;
+points.forEach(point=>{
+const layer=activeMockupConfig().layers.find(l=>l.id===point.id);
+if(!layer)return;
+const tip=locateHintTip(point);
+const button=document.createElement("button");
+button.type="button";
+button.className="mockup-hint-button";
+button.style.left=(imageLeft+tip.x*width*ratio-9)+"px";
+button.style.top=(imageTop+tip.y*height*ratio+9)+"px";
+button.setAttribute("aria-label",layer.label+" 편집");
+button.title=layer.label;
+button.innerHTML=HAND_ICON_SVG;
+button.onclick=e=>{
+e.stopPropagation();
+dismissMockupHints();
+setMockupSelection(layer.id);
+};
+mockupHintLayer.appendChild(button);
+});
+mockupHintLayer.classList.toggle("is-hidden",mockupHintsDismissed||!points.length);
 }
 
 function initialMockupStates(){
-  const out={};
-  for(const [type,config] of Object.entries(MOCKUP_DATA)){
-    for(const layer of config.layers){
-      out[`${type}:${layer.id}`]={
-        color:"#ffffff",
-        variant:currentColor,
-        scale:100,
-        rotation:0,
-        x:0,
-        y:0,
-        mode:"pattern"
-      };
-    }
-  }
-  return out;
+const out={};
+for(const [type,config] of Object.entries(MOCKUP_DATA)){
+for(const layer of config.layers){
+out[`${type}:${layer.id}`]={
+color:"#ffffff",
+variant:currentColor,
+scale:100,
+rotation:0,
+x:0,
+y:0,
+mode:"pattern"
+};
 }
-
+}
+return out;
+}
 function mockupState(id){return mockupStates[`${mockupType}:${id}`]}
 function activeMockupConfig(){return MOCKUP_DATA[mockupType]}
-function activeMockupLayer(){
-  return activeMockupConfig().layers.find(l=>l.id===selectedMockupLayer);
-}
+function activeMockupLayer(){return activeMockupConfig().layers.find(l=>l.id===selectedMockupLayer)}
 
 function validHex(value){
-  value=String(value||"").trim();
-  if(/^#[0-9a-fA-F]{3}$/.test(value)){
-    return "#"+[1,2,3].map(i=>value[i]+value[i]).join("").toLowerCase();
-  }
-  return /^#[0-9a-fA-F]{6}$/.test(value)?value.toLowerCase():null;
+value=String(value||"").trim();
+if(/^#[0-9a-fA-F]{3}$/.test(value)){
+return "#"+[1,2,3].map(i=>value[i]+value[i]).join("").toLowerCase();
 }
-
+return /^#[0-9a-fA-F]{6}$/.test(value)?value.toLowerCase():null;
+}
 function rgbFromHex(hex){
-  const v=validHex(hex)||"#ffffff";
-  return [1,3,5].map(i=>parseInt(v.slice(i,i+2),16));
+const v=validHex(hex)||"#ffffff";
+return [1,3,5].map(i=>parseInt(v.slice(i,i+2),16));
 }
-
 function hexFromRgb(r,g,b){
-  return "#"+[r,g,b].map(v=>
-    Math.round(Math.max(0,Math.min(255,v)))
-      .toString(16).padStart(2,"0")
-  ).join("");
+return "#"+[r,g,b].map(v=>
+Math.round(Math.max(0,Math.min(255,v))).toString(16).padStart(2,"0")
+).join("");
 }
-
 function toHSV(hex){
-  const [r,g,b]=rgbFromHex(hex).map(x=>x/255);
-  const mx=Math.max(r,g,b),mn=Math.min(r,g,b),delta=mx-mn;
-  let h=0;
-  if(delta){
-    if(mx===r)h=((g-b)/delta)%6;
-    else if(mx===g)h=(b-r)/delta+2;
-    else h=(r-g)/delta+4;
-    h=((h*60)%360+360)%360;
-  }
-  return {h,s:mx?delta/mx:0,v:mx};
+const [r,g,b]=rgbFromHex(hex).map(x=>x/255);
+const mx=Math.max(r,g,b),mn=Math.min(r,g,b),delta=mx-mn;
+let h=0;
+if(delta){
+if(mx===r)h=((g-b)/delta)%6;
+else if(mx===g)h=(b-r)/delta+2;
+else h=(r-g)/delta+4;
+h=((h*60)%360+360)%360;
 }
-
+return{h,s:mx?delta/mx:0,v:mx};
+}
 function fromHSV(h,s,v){
-  h=((h%360)+360)%360;
-  s=Math.max(0,Math.min(1,s));
-  v=Math.max(0,Math.min(1,v));
-  const c=v*s,x=c*(1-Math.abs((h/60)%2-1)),m=v-c;
-  let a=[0,0,0];
-
-  if(h<60)a=[c,x,0];
-  else if(h<120)a=[x,c,0];
-  else if(h<180)a=[0,c,x];
-  else if(h<240)a=[0,x,c];
-  else if(h<300)a=[x,0,c];
-  else a=[c,0,x];
-
-  return hexFromRgb(...a.map(t=>(t+m)*255));
+h=((h%360)+360)%360;
+s=Math.max(0,Math.min(1,s));
+v=Math.max(0,Math.min(1,v));
+const c=v*s,x=c*(1-Math.abs((h/60)%2-1)),m=v-c;
+let a=[0,0,0];
+if(h<60)a=[c,x,0];
+else if(h<120)a=[x,c,0];
+else if(h<180)a=[0,c,x];
+else if(h<240)a=[0,x,c];
+else if(h<300)a=[x,0,c];
+else a=[c,0,x];
+return hexFromRgb(...a.map(t=>(t+m)*255));
 }
-
 function toCMYK(hex){
-  const [r,g,b]=rgbFromHex(hex).map(v=>v/255);
-  const k=1-Math.max(r,g,b);
-  if(k>.999)return [0,0,0,100];
-  return [
-    Math.round((1-r-k)/(1-k)*100),
-    Math.round((1-g-k)/(1-k)*100),
-    Math.round((1-b-k)/(1-k)*100),
-    Math.round(k*100)
-  ];
+const [r,g,b]=rgbFromHex(hex).map(v=>v/255);
+const k=1-Math.max(r,g,b);
+if(k>.999)return [0,0,0,100];
+return[
+Math.round((1-r-k)/(1-k)*100),
+Math.round((1-g-k)/(1-k)*100),
+Math.round((1-b-k)/(1-k)*100),
+Math.round(k*100)
+];
 }
-
 function fromCMYK(c,m,y,k){
-  c/=100;m/=100;y/=100;k/=100;
-  return hexFromRgb(
-    255*(1-c)*(1-k),
-    255*(1-m)*(1-k),
-    255*(1-y)*(1-k)
-  );
+c/=100;m/=100;y/=100;k/=100;
+return hexFromRgb(
+255*(1-c)*(1-k),
+255*(1-m)*(1-k),
+255*(1-y)*(1-k)
+);
 }
 
+/* IMAGE LOADING */
 function imgurCandidates(id,ext="png",local=null){
-  const urls=[];
-  if(local)urls.push(`./mockup_images/${local}.png`);
-  urls.push(`https://i.imgur.com/${id}.${ext}`);
-  urls.push(`https://i.imgur.com/${id}.${ext==="png"?"jpg":"png"}`);
-  return urls;
+const urls=[];
+const localURL=local?`./mockup_images/${local}.png`:null;
+const onPages=/(^|\.)github\.io$/i.test(location.hostname);
+if(localURL&&!onPages)urls.push(localURL);
+urls.push(`https://i.imgur.com/${id}.${ext}`);
+urls.push(`https://i.imgur.com/${id}.${ext==="png"?"jpg":"png"}`);
+if(localURL&&onPages)urls.push(localURL);
+return urls;
 }
-
 function imgWithCors(url){
-  return new Promise(resolve=>{
-    const img=new Image();
-    img.crossOrigin="anonymous";
-    img.onload=()=>resolve(img);
-    img.onerror=()=>resolve(null);
-    img.src=url;
-  });
+return new Promise(resolve=>{
+const img=new Image();
+img.crossOrigin="anonymous";
+img.decoding="async";
+img.onload=()=>resolve(img);
+img.onerror=()=>resolve(null);
+img.src=url;
+});
 }
-
 const mockupLoadCache=new Map();
-
 async function loadMockupImageFrom(candidates){
-  for(const url of candidates){
-    if(!mockupLoadCache.has(url)){
-      mockupLoadCache.set(url,imgWithCors(url));
-    }
-    const image=await mockupLoadCache.get(url);
-    if(image)return image;
-  }
-  return null;
+for(const url of candidates){
+if(!mockupLoadCache.has(url)){
+mockupLoadCache.set(url,imgWithCors(url));
 }
-
-function makeCanvas(w,h){
-  const c=document.createElement("canvas");
-  c.width=w;
-  c.height=h;
-  return c;
+const image=await mockupLoadCache.get(url);
+if(image)return image;
+}
+return null;
 }
 
 function maskFromLayer(image,kind,W,H){
-  const c=makeCanvas(W,H);
-  const cx=c.getContext("2d",{willReadFrequently:true});
-  cx.drawImage(image,0,0,W,H);
-  let data;
-
-  try{
-    data=cx.getImageData(0,0,W,H);
-  }catch(err){
-    return null;
-  }
-
-  const d=data.data;
-  let transparent=0;
-  for(let i=3;i<d.length;i+=Math.max(4,Math.floor(d.length/8000/4)*4)){
-    if(d[i]<245)transparent++;
-  }
-
-  if(transparent===0){
-    const corners=[[3,3],[W-4,3],[3,H-4],[W-4,H-4]];
-    const avg=[0,0,0];
-    for(const [x,y] of corners){
-      const q=(y*W+x)*4;
-      for(let j=0;j<3;j++)avg[j]+=d[q+j]/4;
-    }
-
-    const invert=kind==="background";
-    for(let i=0;i<d.length;i+=4){
-      const dist=Math.sqrt(
-        (d[i]-avg[0])**2+
-        (d[i+1]-avg[1])**2+
-        (d[i+2]-avg[2])**2
-      );
-      const a=Math.max(0,Math.min(255,(dist-12)*5));
-      d[i]=255;
-      d[i+1]=255;
-      d[i+2]=255;
-      d[i+3]=invert?255-a:a;
-    }
-    cx.putImageData(data,0,0);
-  }
-
-  const sw=MASK_SAMPLE_SIZE;
-  const sh=Math.round(H/W*sw);
-  const sc=makeCanvas(sw,sh);
-  const sx=sc.getContext("2d",{willReadFrequently:true});
-  sx.drawImage(c,0,0,sw,sh);
-  const sample=sx.getImageData(0,0,sw,sh).data;
-  return {canvas:c,sample,sampleW:sw,sampleH:sh};
+const c=makeCanvas(W,H);
+const cx=c.getContext("2d",{willReadFrequently:true});
+cx.drawImage(image,0,0,W,H);
+let data;
+try{
+data=cx.getImageData(0,0,W,H);
+}catch(err){
+return null;
+}
+const d=data.data;
+let transparent=0;
+for(let i=3;i<d.length;i+=Math.max(4,Math.floor(d.length/8000/4)*4)){
+if(d[i]<245)transparent++;
+}
+if(transparent===0){
+const corners=[[3,3],[W-4,3],[3,H-4],[W-4,H-4]];
+const avg=[0,0,0];
+for(const [x,y] of corners){
+const q=(y*W+x)*4;
+for(let j=0;j<3;j++)avg[j]+=d[q+j]/4;
+}
+const invert=kind==="background";
+for(let i=0;i<d.length;i+=4){
+const dist=Math.sqrt(
+(d[i]-avg[0])**2+
+(d[i+1]-avg[1])**2+
+(d[i+2]-avg[2])**2
+);
+const a=Math.max(0,Math.min(255,(dist-12)*5));
+d[i]=255;
+d[i+1]=255;
+d[i+2]=255;
+d[i+3]=invert?255-a:a;
+}
+cx.putImageData(data,0,0);
+}
+const sw=MASK_SAMPLE_SIZE;
+const sh=Math.max(1,Math.round(H/W*sw));
+const sc=makeCanvas(sw,sh);
+const sx=sc.getContext("2d",{willReadFrequently:true});
+sx.drawImage(c,0,0,sw,sh);
+const sample=sx.getImageData(0,0,sw,sh).data;
+return{canvas:c,sample,sampleW:sw,sampleH:sh};
 }
 
 function maskAlpha(id,x,y){
-  const m=mockupLayerMasks[id];
-  if(!m)return 0;
-  const ix=Math.min(
-    m.sampleW-1,
-    Math.max(0,Math.floor(x/mockupCanvas.width*m.sampleW))
-  );
-  const iy=Math.min(
-    m.sampleH-1,
-    Math.max(0,Math.floor(y/mockupCanvas.height*m.sampleH))
-  );
-  return m.sample[(iy*m.sampleW+ix)*4+3];
+const m=mockupLayerMasks[id];
+if(!m)return 0;
+const ix=Math.min(m.sampleW-1,Math.max(0,Math.floor(x/mockupCanvas.width*m.sampleW)));
+const iy=Math.min(m.sampleH-1,Math.max(0,Math.floor(y/mockupCanvas.height*m.sampleH)));
+return m.sample[(iy*m.sampleW+ix)*4+3];
 }
-
 function hitMockupLayer(x,y){
-  const layers=activeMockupConfig().layers;
-
-  for(const l of [...layers].reverse()){
-    if(l.kind==="background"||l.kind==="auto")continue;
-    if(maskAlpha(l.id,x,y)>35)return l.id;
-  }
-
-  const main=layers.find(l=>l.kind==="pattern");
-  if(main&&!mockupLayerMasks[main.id]){
-    const u=x/mockupCanvas.width;
-    const v=y/mockupCanvas.height;
-    const fallback={
-      dress:[.31,.69,.16,.91],
-      tshirt:[.18,.82,.19,.85],
-      bag:[.2,.8,.23,.83]
-    }[mockupType];
-
-    if(
-      fallback&&
-      u>=fallback[0]&&u<=fallback[1]&&
-      v>=fallback[2]&&v<=fallback[3]
-    )return main.id;
-  }
-
-  return layers.find(l=>l.kind==="background")?.id||null;
+const layers=activeMockupConfig().layers;
+for(const l of [...layers].reverse()){
+if(l.kind==="background"||l.kind==="auto")continue;
+if(maskAlpha(l.id,x,y)>35)return l.id;
 }
-
+const main=layers.find(l=>l.kind==="pattern");
+if(main&&!mockupLayerMasks[main.id]){
+const u=x/mockupCanvas.width,v=y/mockupCanvas.height;
+const fallback={
+dress:[.31,.69,.16,.91],
+tshirt:[.18,.82,.19,.85],
+bag:[.2,.8,.23,.83]
+}[mockupType];
+if(fallback&&u>=fallback[0]&&u<=fallback[1]&&v>=fallback[2]&&v<=fallback[3]){
+return main.id;
+}
+}
+return layers.find(l=>l.kind==="background")?.id||null;
+}
 function getCanvasPoint(e){
-  const rect=mockupCanvas.getBoundingClientRect();
-  const w=mockupCanvas.width,h=mockupCanvas.height;
-  const ratio=Math.min(rect.width/w,rect.height/h);
-  const left=(rect.width-w*ratio)/2;
-  const top=(rect.height-h*ratio)/2;
-  const x=(e.clientX-rect.left-left)/ratio;
-  const y=(e.clientY-rect.top-top)/ratio;
-  return {x,y,inside:x>=0&&y>=0&&x<w&&y<h};
+const rect=mockupCanvas.getBoundingClientRect();
+const w=mockupCanvas.width,h=mockupCanvas.height;
+const ratio=Math.min(rect.width/w,rect.height/h);
+const left=(rect.width-w*ratio)/2;
+const top=(rect.height-h*ratio)/2;
+const x=(e.clientX-rect.left-left)/ratio;
+const y=(e.clientY-rect.top-top)/ratio;
+return{x,y,inside:x>=0&&y>=0&&x<w&&y<h};
 }
-
 function setMockupSelection(id){
-  if(!id||id===selectedMockupLayer)return;
-  selectedMockupLayer=id;
-  renderMockupInspector();
-  const layer=activeMockupLayer();
-  mockupStatus.textContent=`${layer?.label||"레이어"} 선택 · 오른쪽에서 변경`;
+if(!id||id===selectedMockupLayer)return;
+selectedMockupLayer=id;
+renderMockupInspector();
+const layer=activeMockupLayer();
+mockupStatus.textContent=`${layer?.label||"레이어"} 선택 · 오른쪽에서 변경`;
 }
 
 async function selectMockupType(type){
-  if(!MOCKUP_DATA[type])return;
-  const token=++mockupVersion;
-  mockupType=type;
-  mockupHintsDismissed=false;
-  selectedMockupLayer=MOCKUP_DATA[type].layers.find(
-    l=>l.kind==="pattern"||l.kind==="both"
-  )?.id||"background";
-  mockupBusy=true;
-  mockupPhoto=null;
-  mockupLayerMasks={};
-  mockupAssetErrors=[];
+if(!MOCKUP_DATA[type])return;
+const token=++mockupVersion;
+mockupType=type;
+mockupHintsDismissed=false;
+selectedMockupLayer=MOCKUP_DATA[type].layers.find(
+l=>l.kind==="pattern"||l.kind==="both"
+)?.id||"background";
+mockupBusy=true;
+mockupPhoto=null;
+mockupLayerMasks={};
+mockupAssetErrors=[];
+document.getElementById("mockupTitle").textContent=MOCKUP_DATA[type].label+" MOCKUP";
+renderMockupTypes();
+renderMockupInspector();
+renderMockupHints();
+mockupStatus.textContent="레이어 이미지를 불러오는 중...";
+mockupStatus.classList.remove("is-error");
+drawMockup();
 
-  document.getElementById("mockupTitle").textContent=
-    MOCKUP_DATA[type].label+" MOCKUP";
-  renderMockupTypes();
-  renderMockupInspector();
-  renderMockupHints();
-  mockupStatus.textContent="레이어 이미지를 불러오는 중...";
-  mockupStatus.classList.remove("is-error");
-  drawMockup();
+const c=MOCKUP_DATA[type];
+const photoTask=loadMockupImageFrom(imgurCandidates(c.photo,"png",`${type}_image`));
+const layersTask=Promise.all(c.layers.map(async layer=>{
+const img=await loadMockupImageFrom(
+imgurCandidates(layer.image,"png",`${type}_${layer.id}`)
+);
+return[layer,img];
+}));
+const photo=await photoTask;
+if(token!==mockupVersion)return;
+mockupPhoto=photo;
+const sourceW=photo?.naturalWidth||1086;
+const sourceH=photo?.naturalHeight||1448;
+const maxEdge=(navigator.maxTouchPoints||0)>1?1200:1600;
+const downscale=Math.min(1,maxEdge/Math.max(sourceW,sourceH));
+mockupCanvas.width=Math.round(sourceW*downscale);
+mockupCanvas.height=Math.round(sourceH*downscale);
+renderMockupHints();
+renderMockup();
+if(!photo)mockupAssetErrors.push("원본 이미지");
 
-  const c=MOCKUP_DATA[type];
-  const photo=await loadMockupImageFrom(
-    imgurCandidates(c.photo,"png",`${type}_image`)
-  );
-  if(token!==mockupVersion)return;
-
-  mockupPhoto=photo;
-  mockupCanvas.width=photo?.naturalWidth||1086;
-  mockupCanvas.height=photo?.naturalHeight||1448;
-  renderMockupHints();
-
-  if(!photo)mockupAssetErrors.push("원본 이미지");
-
-  const results=await Promise.all(c.layers.map(async layer=>{
-    const img=await loadMockupImageFrom(
-      imgurCandidates(layer.image,"png",`${type}_${layer.id}`)
-    );
-    return [layer,img];
-  }));
-  if(token!==mockupVersion)return;
-
-  for(const [layer,image] of results){
-    if(!image){
-      mockupAssetErrors.push(layer.label);
-      continue;
-    }
-    const mask=maskFromLayer(
-      image,layer.kind,mockupCanvas.width,mockupCanvas.height
-    );
-    if(!mask){
-      mockupAssetErrors.push(`${layer.label} 투명도 확인 실패`);
-    }else{
-      mockupLayerMasks[layer.id]=mask;
-    }
-  }
-
-  mockupBusy=false;
-  mockupStatus.textContent=mockupAssetErrors.length
-    ?"일부 이미지 로드 실패 · 오른쪽 안내 확인"
-    :"사진 속 옷이나 배경을 선택하세요";
-  mockupStatus.classList.toggle("is-error",mockupAssetErrors.length>0);
-
-  renderMockupInspector();
-  renderMockup();
-  renderMockupHints();
+const results=await layersTask;
+if(token!==mockupVersion)return;
+for(const [layer,image] of results){
+if(!image){
+mockupAssetErrors.push(layer.label);
+continue;
+}
+const mask=maskFromLayer(
+image,layer.kind,mockupCanvas.width,mockupCanvas.height
+);
+if(!mask){
+mockupAssetErrors.push(`${layer.label} 투명도 확인 실패`);
+}else{
+mockupLayerMasks[layer.id]=mask;
+}
+}
+mockupBusy=false;
+mockupStatus.textContent=mockupAssetErrors.length
+?"일부 이미지 로드 실패 · 오른쪽 안내 확인"
+:"사진 속 옷이나 배경을 선택하세요";
+mockupStatus.classList.toggle("is-error",mockupAssetErrors.length>0);
+renderMockupInspector();
+renderMockup();
+renderMockupHints();
 }
 
 function renderMockupTypes(){
-  mockupTypeNav.innerHTML="";
-  for(const [type,c] of Object.entries(MOCKUP_DATA)){
-    const b=document.createElement("button");
-    b.className="mockup-type-button"+(type===mockupType?" active":"");
-    b.textContent=c.label;
-    b.onclick=()=>selectMockupType(type);
-    mockupTypeNav.appendChild(b);
-  }
+mockupTypeNav.innerHTML="";
+for(const [type,c] of Object.entries(MOCKUP_DATA)){
+const b=document.createElement("button");
+b.className="mockup-type-button"+(type===mockupType?" active":"");
+b.textContent=c.label;
+b.onclick=()=>selectMockupType(type);
+mockupTypeNav.appendChild(b);
 }
-
+}
 function getMockupPatternImage(layer){
-  const state=mockupState(layer.id);
-  return mockupPatternImages[state?.variant]||null;
+const state=mockupState(layer.id);
+return mockupPatternImages[state?.variant]||null;
 }
 
-/* CONTINUOUS MOCKUP REPEAT */
+/* MOCKUP REPEAT */
 const textileTileCache=new WeakMap();
-
 function drawSeamlessTextile(ctx,image,state,W,H){
-  const naturalW=image.naturalWidth||240;
-  const naturalH=image.naturalHeight||240;
-  const cellW=Math.max(4,Math.round(240*state.scale/100));
-  const cellH=Math.max(4,Math.round(cellW*naturalH/naturalW));
-  const tileKey=cellW+":"+cellH;
-
-  let cache=textileTileCache.get(image);
-  if(!cache){
-    cache=new Map();
-    textileTileCache.set(image,cache);
-  }
-
-  let tile=cache.get(tileKey);
-  if(!tile){
-    tile=makeCanvas(cellW,cellH);
-    const tctx=tile.getContext("2d");
-    paintSeamGuardedTile(tctx,image,cellW,cellH,1);
-    if(cache.size>=8)cache.delete(cache.keys().next().value);
-    cache.set(tileKey,tile);
-  }
-
-  const repeat=ctx.createPattern(tile,"repeat");
-  if(!repeat)return;
-
-  const cx=Math.round(W/2+state.x);
-  const cy=Math.round(H/2+state.y);
-  const radius=Math.ceil(Math.hypot(W,H)+Math.max(cellW,cellH));
-
-  ctx.save();
-  ctx.translate(cx,cy);
-  ctx.rotate(state.rotation*Math.PI/180);
-  ctx.fillStyle=repeat;
-  ctx.fillRect(-radius,-radius,2*radius,2*radius);
-  ctx.restore();
+const naturalW=image.naturalWidth||240;
+const naturalH=image.naturalHeight||240;
+const cellW=Math.max(4,Math.round(240*state.scale/100));
+const cellH=Math.max(4,Math.round(cellW*naturalH/naturalW));
+const tileKey=cellW+":"+cellH;
+let cache=textileTileCache.get(image);
+if(!cache){
+cache=new Map();
+textileTileCache.set(image,cache);
 }
+let tile=cache.get(tileKey);
+if(!tile){
+tile=makeCanvas(cellW,cellH);
+paintSeamGuardedTile(tile.getContext("2d"),image,cellW,cellH);
+if(cache.size>=8)cache.delete(cache.keys().next().value);
+cache.set(tileKey,tile);
+}
+const repeat=ctx.createPattern(tile,"repeat");
+if(!repeat)return;
+const cx=Math.round(W/2+state.x);
+const cy=Math.round(H/2+state.y);
+const radius=Math.ceil(Math.hypot(W,H)+Math.max(cellW,cellH));
+ctx.save();
+ctx.translate(cx,cy);
+ctx.rotate(state.rotation*Math.PI/180);
+ctx.fillStyle=repeat;
+ctx.fillRect(-radius,-radius,2*radius,2*radius);
+ctx.restore();
+}
+
+const mockupWorkCanvas=makeCanvas(1,1);
+const mockupWorkCtx=mockupWorkCanvas.getContext("2d");
 
 function drawMasked(layer,fillPattern=false){
-  const mask=mockupLayerMasks[layer.id];
-  if(!mask)return;
-
-  const W=mockupCanvas.width,H=mockupCanvas.height;
-  const c=makeCanvas(W,H);
-  const x=c.getContext("2d");
-  const state=mockupState(layer.id);
-
-  if(fillPattern&&state.mode!=="color"){
-    const image=getMockupPatternImage(layer);
-    if(!image)return;
-    drawSeamlessTextile(x,image,state,W,H);
-  }else{
-    const targetColor=layer.kind==="auto"
-      ?getPattern().colors[mockupState(layer.parent).variant]||
-       getPattern().colors[0]
-      :state.color;
-    x.fillStyle=targetColor||"#ffffff";
-    x.fillRect(0,0,W,H);
-  }
-
-  x.globalCompositeOperation="destination-in";
-  x.drawImage(mask.canvas,0,0,W,H);
-  x.globalCompositeOperation="source-over";
-
-  mockupCtx.save();
-  mockupCtx.globalCompositeOperation="multiply";
-  mockupCtx.drawImage(c,0,0);
-  mockupCtx.restore();
+const mask=mockupLayerMasks[layer.id];
+if(!mask)return;
+const W=mockupCanvas.width,H=mockupCanvas.height;
+if(mockupWorkCanvas.width!==W||mockupWorkCanvas.height!==H){
+mockupWorkCanvas.width=W;
+mockupWorkCanvas.height=H;
+}
+const c=mockupWorkCanvas,x=mockupWorkCtx;
+x.setTransform(1,0,0,1,0,0);
+x.globalCompositeOperation="source-over";
+x.clearRect(0,0,W,H);
+const state=mockupState(layer.id);
+if(fillPattern&&state.mode!=="color"){
+const image=getMockupPatternImage(layer);
+if(!image)return;
+drawSeamlessTextile(x,image,state,W,H);
+}else{
+const targetColor=layer.kind==="auto"
+?getPattern().colors[mockupState(layer.parent).variant]||getPattern().colors[0]
+:state.color;
+x.fillStyle=targetColor||"#ffffff";
+x.fillRect(0,0,W,H);
+}
+x.globalCompositeOperation="destination-in";
+x.drawImage(mask.canvas,0,0,W,H);
+x.globalCompositeOperation="source-over";
+mockupCtx.save();
+mockupCtx.globalCompositeOperation="multiply";
+mockupCtx.drawImage(c,0,0);
+mockupCtx.restore();
 }
 
 let mockupRenderQueued=false;
-
 function renderMockup(){
-  if(mockupRenderQueued)return;
-  mockupRenderQueued=true;
-  requestAnimationFrame(()=>{
-    mockupRenderQueued=false;
-    drawMockup();
-  });
+if(mockupRenderQueued)return;
+mockupRenderQueued=true;
+requestAnimationFrame(()=>{
+mockupRenderQueued=false;
+drawMockup();
+});
 }
-
 function drawMockup(){
-  const W=mockupCanvas.width,H=mockupCanvas.height;
-  mockupCtx.clearRect(0,0,W,H);
-  mockupCtx.fillStyle="#ffffff";
-  mockupCtx.fillRect(0,0,W,H);
-
-  if(mockupPhoto)mockupCtx.drawImage(mockupPhoto,0,0,W,H);
-
-  for(const layer of activeMockupConfig().layers){
-    if(layer.kind==="pattern"||layer.kind==="both"){
-      drawMasked(layer,true);
-    }else{
-      drawMasked(layer,false);
-    }
-  }
-
-  if(!mockupPhoto){
-    mockupCtx.fillStyle="#666";
-    mockupCtx.font="20px Arial";
-    mockupCtx.textAlign="center";
-    mockupCtx.fillText(
-      mockupBusy
-        ?"목업 이미지 로딩 중..."
-        :"목업 원본 이미지를 불러오지 못했습니다.",
-      W/2,H/2
-    );
-  }
+const W=mockupCanvas.width,H=mockupCanvas.height;
+mockupCtx.clearRect(0,0,W,H);
+mockupCtx.fillStyle="#ffffff";
+mockupCtx.fillRect(0,0,W,H);
+if(mockupPhoto)mockupCtx.drawImage(mockupPhoto,0,0,W,H);
+for(const layer of activeMockupConfig().layers){
+if(layer.kind==="pattern"||layer.kind==="both"){
+drawMasked(layer,true);
+}else{
+drawMasked(layer,false);
+}
+}
+if(!mockupPhoto){
+mockupCtx.fillStyle="#666";
+mockupCtx.font="20px Arial";
+mockupCtx.textAlign="center";
+mockupCtx.fillText(
+mockupBusy?"목업 이미지 로딩 중...":"목업 원본 이미지를 불러오지 못했습니다.",
+W/2,H/2
+);
+}
 }
 
-/* MOCKUP INSPECTOR */
+/* INSPECTOR */
 function renderMockupInspector(){
-  inspectorContent.innerHTML="";
-
-  if(mockupAssetErrors.length){
-    const error=document.createElement("p");
-    error.className="mockup-error";
-    error.textContent=
-      "로드 실패: "+mockupAssetErrors.join(", ")+
-      ". Imgur에서 PNG 투명 레이어를 직접 저장하고 mockup_images 폴더에 넣으면 안정적으로 작동합니다.";
-    inspectorContent.appendChild(error);
-  }
-
-  const layer=activeMockupLayer();
-
-  if(!layer){
-    const p=document.createElement("div");
-    p.className="inspector-empty";
-    p.textContent=
-      "사진 속 원피스·티셔츠·가방·침구 또는 배경에 마우스를 올리거나 손가락으로 터치하세요. 해당 부분의 설정 창이 여기 나타납니다.";
-    inspectorContent.appendChild(p);
-    return;
-  }
-
-  if(layer.kind==="pattern"){
-    addMockupPatternColors(layer);
-    addMockupTransform(layer);
-  }else if(layer.kind==="both"){
-    addMockupModeControls(layer);
-    if(mockupState(layer.id).mode==="color"){
-      addMockupColorPicker(layer);
-    }else{
-      addMockupPatternColors(layer);
-      addMockupTransform(layer);
-    }
-  }else if(layer.kind==="background"){
-    addMockupColorPicker(layer);
-  }
+inspectorContent.innerHTML="";
+if(mockupAssetErrors.length){
+const error=document.createElement("p");
+error.className="mockup-error";
+error.textContent="로드 실패: "+mockupAssetErrors.join(", ")+
+". Imgur에서 PNG 투명 레이어를 직접 저장하고 mockup_images 폴더에 넣으면 안정적으로 작동합니다.";
+inspectorContent.appendChild(error);
 }
-
+const layer=activeMockupLayer();
+if(!layer){
+const p=document.createElement("div");
+p.className="inspector-empty";
+p.textContent="사진 속 원피스·티셔츠·가방·침구 또는 배경에 마우스를 올리거나 손가락으로 터치하세요. 해당 부분의 설정 창이 여기 나타납니다.";
+inspectorContent.appendChild(p);
+return;
+}
+if(layer.kind==="pattern"){
+addMockupPatternColors(layer);
+addMockupTransform(layer);
+}else if(layer.kind==="both"){
+addMockupModeControls(layer);
+if(mockupState(layer.id).mode==="color"){
+addMockupColorPicker(layer);
+}else{
+addMockupPatternColors(layer);
+addMockupTransform(layer);
+}
+}else if(layer.kind==="background"){
+addMockupColorPicker(layer);
+}
+}
 function inspectorSection(label){
-  const div=document.createElement("div");
-  div.className="inspector-section";
-  const lbl=document.createElement("span");
-  lbl.className="inspector-label";
-  lbl.textContent=label;
-  div.appendChild(lbl);
-  inspectorContent.appendChild(div);
-  return div;
+const div=document.createElement("div");
+div.className="inspector-section";
+const lbl=document.createElement("span");
+lbl.className="inspector-label";
+lbl.textContent=label;
+div.appendChild(lbl);
+inspectorContent.appendChild(div);
+return div;
 }
-
 function addMockupModeControls(layer){
-  const div=inspectorSection("표현 방식");
-  const row=document.createElement("div");
-  row.className="inspector-select-row";
-  const state=mockupState(layer.id);
-
-  for(const [mode,label] of [["pattern","패턴"],["color","컬러"]]){
-    const b=document.createElement("button");
-    b.textContent=label;
-    b.className=mode===state.mode?"active":"";
-    b.onclick=()=>{
-      state.mode=mode;
-      renderMockupInspector();
-      renderMockup();
-    };
-    row.appendChild(b);
-  }
-  div.appendChild(row);
+const div=inspectorSection("표현 방식");
+const row=document.createElement("div");
+row.className="inspector-select-row";
+const state=mockupState(layer.id);
+for(const [mode,label] of [["pattern","패턴"],["color","컬러"]]){
+const b=document.createElement("button");
+b.textContent=label;
+b.className=mode===state.mode?"active":"";
+b.onclick=()=>{
+state.mode=mode;
+renderMockupInspector();
+renderMockup();
+};
+row.appendChild(b);
 }
-
+div.appendChild(row);
+}
 function addMockupPatternColors(layer){
-  const div=inspectorSection("TEXTILE COLORWAY");
-  const row=document.createElement("div");
-  row.className="inspector-swatches";
-  const state=mockupState(layer.id);
-
-  getPattern().variants.forEach((v,i)=>{
-    const b=document.createElement("button");
-    b.className="color-swatch"+(i===state.variant?" active":"");
-    b.style.background=getPattern().colors[i]||"#888";
-    b.title=v.name;
-    b.disabled=!v.src;
-    b.onclick=()=>{
-      state.variant=i;
-      if(layer.kind==="both")state.mode="pattern";
-      renderMockupInspector();
-      renderMockup();
-    };
-    row.appendChild(b);
-  });
-
-  div.appendChild(row);
-
-  if(layer.kind==="pattern"){
-    const sub=document.createElement("p");
-    sub.className="mockup-small";
-    sub.textContent=
-      "색상 아이콘을 누르면 원단 패턴과 연결된 부분의 단색도 함께 변경됩니다.";
-    div.appendChild(sub);
-  }
+const div=inspectorSection("TEXTILE COLORWAY");
+const row=document.createElement("div");
+row.className="inspector-swatches";
+const state=mockupState(layer.id);
+getPattern().variants.forEach((v,i)=>{
+const b=document.createElement("button");
+b.className="color-swatch"+(i===state.variant?" active":"");
+b.style.background=getPattern().colors[i]||"#888";
+b.title=v.name;
+b.disabled=!v.src;
+b.onclick=()=>{
+state.variant=i;
+if(layer.kind==="both")state.mode="pattern";
+renderMockupInspector();
+renderMockup();
+};
+row.appendChild(b);
+});
+div.appendChild(row);
+if(layer.kind==="pattern"){
+const sub=document.createElement("p");
+sub.className="mockup-small";
+sub.textContent="색상 아이콘을 누르면 원단 패턴과 연결된 부분의 단색도 함께 변경됩니다.";
+div.appendChild(sub);
 }
-
+}
 function addMockupTransform(layer){
-  const state=mockupState(layer.id);
-  const div=inspectorSection("TEXTILE TRANSFORM");
-
-  for(const [key,label,min,max,suffix] of [
-    ["scale","크기",20,600,"%"],
-    ["rotation","회전",-180,180,"°"],
-    ["x","가로 위치",-500,500,""],
-    ["y","세로 위치",-500,500,""]
-  ]){
-    const heading=document.createElement("div");
-    heading.className="inspector-slider-row";
-    const name=document.createElement("span");
-    name.textContent=label;
-    const out=document.createElement("output");
-    out.textContent=state[key]+suffix;
-
-    const input=document.createElement("input");
-    input.type="range";
-    input.className="inspector-range";
-    input.min=min;
-    input.max=max;
-    input.value=state[key];
-    input.dataset.mockupTransform=key;
-    out.dataset.mockupTransform=key;
-
-    input.oninput=()=>{
-      state[key]=+input.value;
-      out.textContent=state[key]+suffix;
-      renderMockup();
-    };
-    heading.append(name,out);
-    div.append(heading,input);
-  }
-
-  const hint=document.createElement("p");
-  hint.className="mockup-small";
-  hint.textContent=
-    "사진 위에서 마우스 휠로 패턴 크기 조절 · 드래그로 위치 이동";
-  div.appendChild(hint);
+const state=mockupState(layer.id);
+const div=inspectorSection("TEXTILE TRANSFORM");
+for(const [key,label,min,max,suffix] of [
+["scale","크기",20,600,"%"],
+["rotation","회전",-180,180,"°"],
+["x","가로 위치",-500,500,""],
+["y","세로 위치",-500,500,""]
+]){
+const heading=document.createElement("div");
+heading.className="inspector-slider-row";
+const name=document.createElement("span");
+name.textContent=label;
+const out=document.createElement("output");
+out.textContent=state[key]+suffix;
+const input=document.createElement("input");
+input.type="range";
+input.className="inspector-range";
+input.min=min;
+input.max=max;
+input.value=state[key];
+input.dataset.mockupTransform=key;
+out.dataset.mockupTransform=key;
+input.oninput=()=>{
+state[key]=+input.value;
+out.textContent=state[key]+suffix;
+renderMockup();
+};
+heading.append(name,out);
+div.append(heading,input);
+}
+const hint=document.createElement("p");
+hint.className="mockup-small";
+hint.textContent="사진 위에서 마우스 휠로 패턴 크기 조절 · 드래그로 위치 이동";
+div.appendChild(hint);
 }
 
-/* EXTRACTED TEXTILE COLORS */
+/* EXTRACTED COLORS */
 const extractedPaletteCache=new Map();
-
 function getPaletteVariantForLayer(layer){
-  const config=activeMockupConfig();
-  if(layer.kind==="background"){
-    const textileLayer=
-      config.layers.find(l=>l.kind==="pattern")||
-      config.layers.find(l=>l.id==="duvet")||
-      config.layers.find(l=>l.kind==="both");
-    return mockupState(textileLayer?.id)?.variant??currentColor;
-  }
-  return mockupState(layer.id)?.variant??currentColor;
+const config=activeMockupConfig();
+if(layer.kind==="background"){
+const textileLayer=
+config.layers.find(l=>l.kind==="pattern")||
+config.layers.find(l=>l.id==="duvet")||
+config.layers.find(l=>l.kind==="both");
+return mockupState(textileLayer?.id)?.variant??currentColor;
 }
-
+return mockupState(layer.id)?.variant??currentColor;
+}
 function extractTextilePalette(image,firstColor,cacheKey){
-  const first=validHex(firstColor)||"#ffffff";
-  if(!image)return [first];
-
-  const key=cacheKey+":"+first;
-  if(extractedPaletteCache.has(key))return extractedPaletteCache.get(key);
-
-  try{
-    const size=112;
-    const ratio=(image.naturalHeight||1)/(image.naturalWidth||1);
-    const w=ratio>1?Math.max(1,Math.round(size/ratio)):size;
-    const h=ratio>1?size:Math.max(1,Math.round(size*ratio));
-    const c=makeCanvas(w,h);
-    const ctx=c.getContext("2d",{willReadFrequently:true});
-    ctx.drawImage(image,0,0,w,h);
-
-    const pixels=ctx.getImageData(0,0,w,h).data;
-    const buckets=new Map();
-
-    for(let i=0;i<pixels.length;i+=4){
-      if(pixels[i+3]<180)continue;
-      const r=pixels[i],g=pixels[i+1],b=pixels[i+2];
-      const code=((r>>5)<<6)|((g>>5)<<3)|(b>>5);
-      let bucket=buckets.get(code);
-      if(!bucket){
-        bucket={n:0,r:0,g:0,b:0};
-        buckets.set(code,bucket);
-      }
-      bucket.n++;
-      bucket.r+=r;
-      bucket.g+=g;
-      bucket.b+=b;
-    }
-
-    const candidates=[...buckets.values()]
-      .sort((a,b)=>b.n-a.n)
-      .map(v=>hexFromRgb(v.r/v.n,v.g/v.n,v.b/v.n));
-
-    const palette=[first];
-    const distance=(a,b)=>{
-      const x=rgbFromHex(a),y=rgbFromHex(b);
-      return Math.sqrt(
-        .3*(x[0]-y[0])**2+
-        .59*(x[1]-y[1])**2+
-        .11*(x[2]-y[2])**2
-      );
-    };
-
-    for(const minimum of [58,38,25]){
-      for(const color of candidates){
-        if(palette.length===8)break;
-        if(palette.every(existing=>distance(existing,color)>=minimum)){
-          palette.push(color);
-        }
-      }
-      if(palette.length===8)break;
-    }
-
-    extractedPaletteCache.set(key,palette);
-    return palette;
-  }catch(err){
-    return [first];
-  }
+const first=validHex(firstColor)||"#ffffff";
+if(!image)return[first];
+const key=cacheKey+":"+first;
+if(extractedPaletteCache.has(key)){
+return extractedPaletteCache.get(key);
+}
+try{
+const size=112;
+const ratio=(image.naturalHeight||1)/(image.naturalWidth||1);
+const w=ratio>1?Math.max(1,Math.round(size/ratio)):size;
+const h=ratio>1?size:Math.max(1,Math.round(size*ratio));
+const c=makeCanvas(w,h);
+const ctx=c.getContext("2d",{willReadFrequently:true});
+ctx.drawImage(image,0,0,w,h);
+const pixels=ctx.getImageData(0,0,w,h).data;
+const buckets=new Map();
+for(let i=0;i<pixels.length;i+=4){
+if(pixels[i+3]<180)continue;
+const r=pixels[i],g=pixels[i+1],b=pixels[i+2];
+const code=((r>>5)<<6)|((g>>5)<<3)|(b>>5);
+let bucket=buckets.get(code);
+if(!bucket){
+bucket={n:0,r:0,g:0,b:0};
+buckets.set(code,bucket);
+}
+bucket.n++;
+bucket.r+=r;
+bucket.g+=g;
+bucket.b+=b;
+}
+const candidates=[...buckets.values()]
+.sort((a,b)=>b.n-a.n)
+.map(v=>hexFromRgb(v.r/v.n,v.g/v.n,v.b/v.n));
+const palette=[first];
+const distance=(a,b)=>{
+const x=rgbFromHex(a),y=rgbFromHex(b);
+return Math.sqrt(
+.3*(x[0]-y[0])**2+
+.59*(x[1]-y[1])**2+
+.11*(x[2]-y[2])**2
+);
+};
+for(const minimum of [58,38,25]){
+for(const color of candidates){
+if(palette.length===8)break;
+if(palette.every(existing=>distance(existing,color)>=minimum)){
+palette.push(color);
+}
+}
+if(palette.length===8)break;
+}
+extractedPaletteCache.set(key,palette);
+return palette;
+}catch(err){
+return[first];
+}
 }
 
-/* RGB / CMYK COLOR PICKER */
+/* COLOR PICKER */
 function addMockupColorPicker(layer){
-  const div=inspectorSection(
-    layer.kind==="background"
-      ?"BACKGROUND COLOR / CMYK"
-      :"FABRIC COLOR / CMYK"
-  );
-  const state=mockupState(layer.id);
+const div=inspectorSection(
+layer.kind==="background"?"BACKGROUND COLOR / CMYK":"FABRIC COLOR / CMYK"
+);
+const state=mockupState(layer.id);
+const top=document.createElement("div");
+top.className="mockup-color-box";
+const native=document.createElement("input");
+native.type="color";
+native.className="mockup-native-color";
+const hex=document.createElement("input");
+hex.type="text";
+hex.className="mockup-hex";
+hex.maxLength=7;
+const eye=document.createElement("button");
+eye.className="mockup-eyedropper";
+eye.title="스포이트로 색상 추출";
+eye.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m2 22 1-1h3l9-9"/><path d="M3 21v-3l9-9"/><path d="m14 5 5 5"/><path d="M11 8l5 5"/><path d="m16 5 1.5-1.5a2.121 2.121 0 0 1 3 3L19 8"/></svg>';
+eye.setAttribute("aria-label","스포이트로 색상 추출");
+top.append(native,hex,eye);
+div.appendChild(top);
 
-  const top=document.createElement("div");
-  top.className="mockup-color-box";
+const fieldWrap=document.createElement("div");
+fieldWrap.className="mockup-sv-wrap";
+const field=document.createElement("canvas");
+field.width=260;
+field.height=170;
+field.className="mockup-sv";
+const marker=document.createElement("span");
+marker.className="mockup-sv-marker";
+marker.setAttribute("aria-hidden","true");
+fieldWrap.append(field,marker);
+div.appendChild(fieldWrap);
 
-  const native=document.createElement("input");
-  native.type="color";
-  native.className="mockup-native-color";
+const hueInput=document.createElement("input");
+hueInput.type="range";
+hueInput.className="mockup-hue";
+hueInput.min=0;
+hueInput.max=360;
+hueInput.step=1;
+div.appendChild(hueInput);
 
-  const hex=document.createElement("input");
-  hex.type="text";
-  hex.className="mockup-hex";
-  hex.maxLength=7;
-
-  const eye=document.createElement("button");
-  eye.className="mockup-eyedropper";
-  eye.title="스포이트로 색상 추출";
-  eye.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m2 22 1-1h3l9-9"/><path d="M3 21v-3l9-9"/><path d="m14 5 5 5"/><path d="M11 8l5 5"/><path d="m16 5 1.5-1.5a2.121 2.121 0 0 1 3 3L19 8"/></svg>';
-  eye.setAttribute("aria-label","스포이트로 색상 추출");
-
-  top.append(native,hex,eye);
-  div.appendChild(top);
-
-  const fieldWrap=document.createElement("div");
-  fieldWrap.className="mockup-sv-wrap";
-
-  const field=document.createElement("canvas");
-  field.width=260;
-  field.height=170;
-  field.className="mockup-sv";
-
-  const marker=document.createElement("span");
-  marker.className="mockup-sv-marker";
-  marker.setAttribute("aria-hidden","true");
-
-  fieldWrap.append(field,marker);
-  div.appendChild(fieldWrap);
-
-  const hueInput=document.createElement("input");
-  hueInput.type="range";
-  hueInput.className="mockup-hue";
-  hueInput.min=0;
-  hueInput.max=360;
-  hueInput.step=1;
-  div.appendChild(hueInput);
-
-  const cmyk=toCMYK(state.color);
-  const cmykRows=[];
-
-  for(let i=0;i<4;i++){
-    const row=document.createElement("div");
-    row.className="mockup-cmyk";
-
-    const title=document.createElement("span");
-    title.textContent="CMYK"[i];
-
-    const slider=document.createElement("input");
-    slider.type="range";
-    slider.min=0;
-    slider.max=100;
-    slider.value=cmyk[i];
-
-    const number=document.createElement("input");
-    number.type="number";
-    number.min=0;
-    number.max=100;
-    number.value=cmyk[i];
-
-    const percent=document.createElement("span");
-    percent.textContent="%";
-
-    row.append(title,slider,number,percent);
-    div.appendChild(row);
-    cmykRows.push({slider,number});
-  }
-
-  let hsv=toHSV(state.color);
-
-  function drawPalette(){
-    const ctx=field.getContext("2d");
-    const w=field.width,h=field.height;
-
-    ctx.fillStyle=fromHSV(hsv.h,1,1);
-    ctx.fillRect(0,0,w,h);
-
-    let grad=ctx.createLinearGradient(0,0,w,0);
-    grad.addColorStop(0,"#fff");
-    grad.addColorStop(1,"rgba(255,255,255,0)");
-    ctx.fillStyle=grad;
-    ctx.fillRect(0,0,w,h);
-
-    grad=ctx.createLinearGradient(0,0,0,h);
-    grad.addColorStop(0,"rgba(0,0,0,0)");
-    grad.addColorStop(1,"#000");
-    ctx.fillStyle=grad;
-    ctx.fillRect(0,0,w,h);
-
-    marker.style.left=hsv.s*100+"%";
-    marker.style.top=(1-hsv.v)*100+"%";
-  }
-
-  function syncInputs(){
-    native.value=state.color;
-    hex.value=state.color;
-    hueInput.value=Math.round(hsv.h);
-
-    const values=toCMYK(state.color);
-    cmykRows.forEach((r,i)=>{
-      r.slider.value=values[i];
-      r.number.value=values[i];
-    });
-
-    drawPalette();
-  }
-
-  function setColor(color){
-    const valid=validHex(color);
-    if(!valid)return;
-    state.color=valid;
-    hsv=toHSV(valid);
-    syncInputs();
-    renderMockup();
-  }
-
-  native.oninput=()=>setColor(native.value);
-  hex.onchange=()=>{
-    const valid=validHex(hex.value);
-    if(valid)setColor(valid);
-    else hex.value=state.color;
-  };
-  hueInput.oninput=()=>{
-    hsv.h=+hueInput.value;
-    state.color=fromHSV(hsv.h,hsv.s,hsv.v);
-    syncInputs();
-    renderMockup();
-  };
-
-  let svDragging=false;
-
-  function chooseSV(e){
-    const r=field.getBoundingClientRect();
-    hsv.s=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));
-    hsv.v=1-Math.max(0,Math.min(1,(e.clientY-r.top)/r.height));
-    state.color=fromHSV(hsv.h,hsv.s,hsv.v);
-    syncInputs();
-    renderMockup();
-  }
-
-  field.addEventListener("pointerdown",e=>{
-    svDragging=true;
-    field.setPointerCapture(e.pointerId);
-    chooseSV(e);
-  });
-  field.addEventListener("pointermove",e=>{
-    if(svDragging)chooseSV(e);
-  });
-  field.addEventListener("pointerup",()=>svDragging=false);
-  field.addEventListener("pointercancel",()=>svDragging=false);
-
-  cmykRows.forEach((r,i)=>{
-    const update=v=>{
-      const channels=toCMYK(state.color);
-      channels[i]=Math.max(0,Math.min(100,+v||0));
-      setColor(fromCMYK(...channels));
-    };
-    r.slider.oninput=()=>update(r.slider.value);
-    r.number.oninput=()=>update(r.number.value);
-  });
-
-  eye.onclick=async()=>{
-    if(typeof EyeDropper!=="undefined"){
-      try{
-        const picked=await new EyeDropper().open();
-        setColor(picked.sRGBHex);
-      }catch(_){}
-    }else{
-      mockupEyeSample=layer.id;
-      mockupStatus.textContent="스포이트: 왼쪽 사진에서 색을 찍으세요";
-    }
-  };
-
-  const presets=document.createElement("div");
-  presets.className="mockup-preset-colors";
-
-  const variantIndex=getPaletteVariantForLayer(layer);
-  const iconColor=
-    getPattern().colors[variantIndex]||
-    getPattern().colors[0];
-  const textileImage=mockupPatternImages[variantIndex]||null;
-
-  const palette=extractTextilePalette(
-    textileImage,
-    iconColor,
-    currentPattern+":"+variantIndex
-  );
-
-  for(const color of palette){
-    const b=document.createElement("button");
-    b.type="button";
-    b.style.background=color;
-    b.title=color;
-    b.setAttribute("aria-label","추출 색상 "+color);
-    b.onclick=()=>setColor(color);
-    presets.appendChild(b);
-  }
-  div.appendChild(presets);
-
-  const note=document.createElement("p");
-  note.className="mockup-small";
-  note.textContent=layer.kind==="background"
-    ?"배경 레이어에만 색상을 적용합니다. 스포이트는 지원 브라우저에서 화면 전체의 색을 추출할 수 있습니다."
-    :"침구는 패턴과 컬러 중 한 가지를 선택해 적용합니다. 컬러 모드에서는 패턴이 표시되지 않습니다.";
-  div.appendChild(note);
-
-  syncInputs();
+const cmyk=toCMYK(state.color);
+const cmykRows=[];
+for(let i=0;i<4;i++){
+const row=document.createElement("div");
+row.className="mockup-cmyk";
+const title=document.createElement("span");
+title.textContent="CMYK"[i];
+const slider=document.createElement("input");
+slider.type="range";
+slider.min=0;
+slider.max=100;
+slider.value=cmyk[i];
+const number=document.createElement("input");
+number.type="number";
+number.min=0;
+number.max=100;
+number.value=cmyk[i];
+const percent=document.createElement("span");
+percent.textContent="%";
+row.append(title,slider,number,percent);
+div.appendChild(row);
+cmykRows.push({slider,number});
 }
 
-/* MOCKUP WHEEL AND DRAG */
+let hsv=toHSV(state.color);
+function drawPalette(){
+const ctx=field.getContext("2d");
+const w=field.width,h=field.height;
+ctx.fillStyle=fromHSV(hsv.h,1,1);
+ctx.fillRect(0,0,w,h);
+let grad=ctx.createLinearGradient(0,0,w,0);
+grad.addColorStop(0,"#fff");
+grad.addColorStop(1,"rgba(255,255,255,0)");
+ctx.fillStyle=grad;
+ctx.fillRect(0,0,w,h);
+grad=ctx.createLinearGradient(0,0,0,h);
+grad.addColorStop(0,"rgba(0,0,0,0)");
+grad.addColorStop(1,"#000");
+ctx.fillStyle=grad;
+ctx.fillRect(0,0,w,h);
+marker.style.left=(hsv.s*100)+"%";
+marker.style.top=((1-hsv.v)*100)+"%";
+}
+function syncInputs(){
+native.value=state.color;
+hex.value=state.color;
+hueInput.value=Math.round(hsv.h);
+const values=toCMYK(state.color);
+cmykRows.forEach((r,i)=>{
+r.slider.value=values[i];
+r.number.value=values[i];
+});
+drawPalette();
+}
+function setColor(color){
+const valid=validHex(color);
+if(!valid)return;
+state.color=valid;
+hsv=toHSV(valid);
+syncInputs();
+renderMockup();
+}
+native.oninput=()=>setColor(native.value);
+hex.onchange=()=>{
+const valid=validHex(hex.value);
+if(valid)setColor(valid);
+else hex.value=state.color;
+};
+hueInput.oninput=()=>{
+hsv.h=+hueInput.value;
+state.color=fromHSV(hsv.h,hsv.s,hsv.v);
+syncInputs();
+renderMockup();
+};
+let svDragging=false;
+function chooseSV(e){
+const r=field.getBoundingClientRect();
+hsv.s=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));
+hsv.v=1-Math.max(0,Math.min(1,(e.clientY-r.top)/r.height));
+state.color=fromHSV(hsv.h,hsv.s,hsv.v);
+syncInputs();
+renderMockup();
+}
+field.addEventListener("pointerdown",e=>{
+svDragging=true;
+field.setPointerCapture(e.pointerId);
+chooseSV(e);
+});
+field.addEventListener("pointermove",e=>{
+if(svDragging)chooseSV(e);
+});
+field.addEventListener("pointerup",()=>svDragging=false);
+field.addEventListener("pointercancel",()=>svDragging=false);
+
+cmykRows.forEach((r,i)=>{
+const update=v=>{
+const channels=toCMYK(state.color);
+channels[i]=Math.max(0,Math.min(100,+v||0));
+setColor(fromCMYK(...channels));
+};
+r.slider.oninput=()=>update(r.slider.value);
+r.number.oninput=()=>update(r.number.value);
+});
+eye.onclick=async()=>{
+if(typeof EyeDropper!=="undefined"){
+try{
+const picked=await new EyeDropper().open();
+setColor(picked.sRGBHex);
+}catch(_){}
+}else{
+mockupEyeSample=layer.id;
+mockupStatus.textContent="스포이트: 왼쪽 사진에서 색을 찍으세요";
+}
+};
+
+const presets=document.createElement("div");
+presets.className="mockup-preset-colors";
+const variantIndex=getPaletteVariantForLayer(layer);
+const iconColor=getPattern().colors[variantIndex]||getPattern().colors[0];
+const textileImage=mockupPatternImages[variantIndex]||null;
+const palette=extractTextilePalette(
+textileImage,iconColor,currentPattern+":"+variantIndex
+);
+for(const color of palette){
+const b=document.createElement("button");
+b.type="button";
+b.style.background=color;
+b.title=color;
+b.setAttribute("aria-label","추출 색상 "+color);
+b.onclick=()=>setColor(color);
+presets.appendChild(b);
+}
+div.appendChild(presets);
+const note=document.createElement("p");
+note.className="mockup-small";
+note.textContent=layer.kind==="background"
+?"배경 레이어에만 색상을 적용합니다. 스포이트는 지원 브라우저에서 화면 전체의 색을 추출할 수 있습니다."
+:"침구는 패턴과 컬러 중 한 가지를 선택해 적용합니다. 컬러 모드에서는 패턴이 표시되지 않습니다.";
+div.appendChild(note);
+syncInputs();
+}
+
+/* WHEEL SCALE */
 let mockupEyeSample=null;
 let mockupDrag=null;
-
+function resizableMockupLayer(layer){
+return !!layer&&(
+layer.kind==="pattern"||
+(layer.kind==="both"&&mockupState(layer.id)?.mode==="pattern")
+);
+}
+function syncMockupScaleUI(value){
+const slider=inspectorContent.querySelector('input[data-mockup-transform="scale"]');
+const output=inspectorContent.querySelector('output[data-mockup-transform="scale"]');
+if(slider)slider.value=String(value);
+if(output)output.textContent=value+"%";
+}
 mockupCanvas.addEventListener("wheel",e=>{
-  if(currentPage!=="mockup"||mockupBusy)return;
-  const point=getCanvasPoint(e);
-  if(!point.inside)return;
-
-  const hoveredId=hitMockupLayer(point.x,point.y);
-  const hoveredLayer=activeMockupConfig().layers.find(l=>l.id===hoveredId);
-
-  const canResize=layer=>layer&&(
-    layer.kind==="pattern"||
-    (layer.kind==="both"&&mockupState(layer.id)?.mode==="pattern")
-  );
-
-  const layer=canResize(hoveredLayer)
-    ?hoveredLayer
-    :(canResize(activeMockupLayer())?activeMockupLayer():null);
-
-  if(!layer)return;
-
-  e.preventDefault();
-  dismissMockupHints();
-
-  if(selectedMockupLayer!==layer.id)setMockupSelection(layer.id);
-
-  const state=mockupState(layer.id);
-  const dy=e.deltaY*(
-    e.deltaMode===1?16:
-    e.deltaMode===2?100:1
-  );
-  if(!dy)return;
-
-  const factor=Math.exp(-Math.max(-200,Math.min(200,dy))*.0016);
-  let scale=Math.round(state.scale*factor);
-  if(scale===state.scale)scale+=dy<0?1:-1;
-
-  const next=Math.max(20,Math.min(600,scale));
-  if(next===state.scale)return;
-
-  state.scale=next;
-
-  const slider=inspectorContent.querySelector(
-    'input[data-mockup-transform="scale"]'
-  );
-  const output=inspectorContent.querySelector(
-    'output[data-mockup-transform="scale"]'
-  );
-
-  if(slider)slider.value=String(next);
-  if(output)output.textContent=next+"%";
-  renderMockup();
+if(currentPage!=="mockup"||mockupBusy)return;
+const point=getCanvasPoint(e);
+if(!point.inside)return;
+const hoveredId=hitMockupLayer(point.x,point.y);
+const hoveredLayer=activeMockupConfig().layers.find(l=>l.id===hoveredId);
+const selected=activeMockupLayer();
+const layer=resizableMockupLayer(hoveredLayer)
+?hoveredLayer
+:(resizableMockupLayer(selected)?selected:null);
+if(!layer)return;
+e.preventDefault();
+dismissMockupHints();
+if(selectedMockupLayer!==layer.id)setMockupSelection(layer.id);
+const state=mockupState(layer.id);
+const dy=e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?100:1);
+if(!dy)return;
+const factor=Math.exp(-Math.max(-200,Math.min(200,dy))*.0016);
+let scale=Math.round(state.scale*factor);
+if(scale===state.scale)scale+=dy<0?1:-1;
+const next=Math.max(20,Math.min(600,scale));
+if(next===state.scale)return;
+state.scale=next;
+syncMockupScaleUI(next);
+renderMockup();
 },{passive:false});
 
+/* MOUSE MOCKUP DRAG */
 mockupCanvas.addEventListener("pointermove",e=>{
-  const point=getCanvasPoint(e);
-
-  if(mockupDrag){
-    if(
-      !mockupDrag.moving&&
-      Math.hypot(
-        e.clientX-mockupDrag.startX,
-        e.clientY-mockupDrag.startY
-      )<5
-    )return;
-
-    mockupDrag.moving=true;
-    const state=mockupState(mockupDrag.layerId);
-
-    if(state){
-      const rect=mockupCanvas.getBoundingClientRect();
-      const ratio=Math.min(
-        rect.width/mockupCanvas.width,
-        rect.height/mockupCanvas.height
-      );
-
-      state.x=Math.max(-500,Math.min(500,Math.round(
-        mockupDrag.x+(e.clientX-mockupDrag.startX)/ratio
-      )));
-      state.y=Math.max(-500,Math.min(500,Math.round(
-        mockupDrag.y+(e.clientY-mockupDrag.startY)/ratio
-      )));
-      renderMockup();
-    }
-    return;
-  }
-
-  if(!point.inside){
-    mockupCanvas.style.cursor="default";
-    return;
-  }
-
-  const hovered=hitMockupLayer(point.x,point.y);
-  mockupCanvas.style.cursor=
-    mockupEyeSample?"crosshair":hovered?"pointer":"default";
+if(e.pointerType==="touch")return;
+const point=getCanvasPoint(e);
+if(mockupDrag){
+if(!mockupDrag.moving&&Math.hypot(
+e.clientX-mockupDrag.startX,
+e.clientY-mockupDrag.startY
+)<5)return;
+mockupDrag.moving=true;
+const state=mockupState(mockupDrag.layerId);
+if(state){
+const rect=mockupCanvas.getBoundingClientRect();
+const ratio=Math.min(
+rect.width/mockupCanvas.width,
+rect.height/mockupCanvas.height
+);
+state.x=Math.max(-500,Math.min(500,Math.round(
+mockupDrag.x+(e.clientX-mockupDrag.startX)/ratio
+)));
+state.y=Math.max(-500,Math.min(500,Math.round(
+mockupDrag.y+(e.clientY-mockupDrag.startY)/ratio
+)));
+renderMockup();
+}
+return;
+}
+if(!point.inside){
+mockupCanvas.style.cursor="default";
+return;
+}
+const hovered=hitMockupLayer(point.x,point.y);
+mockupCanvas.style.cursor=mockupEyeSample?"crosshair":hovered?"pointer":"default";
 });
 
 mockupCanvas.addEventListener("pointerdown",e=>{
-  const p=getCanvasPoint(e);
-  if(!p.inside)return;
-
-  dismissMockupHints();
-
-  if(mockupEyeSample){
-    try{
-      const pixels=mockupCtx.getImageData(
-        Math.floor(p.x),Math.floor(p.y),1,1
-      ).data;
-
-      const s=mockupState(mockupEyeSample);
-      if(s){
-        s.color=hexFromRgb(pixels[0],pixels[1],pixels[2]);
-        selectedMockupLayer=mockupEyeSample;
-        renderMockupInspector();
-        renderMockup();
-      }
-    }catch(err){
-      mockupStatus.textContent=
-        "외부 이미지 보안 때문에 색을 읽을 수 없습니다.";
-    }
-    mockupEyeSample=null;
-    return;
-  }
-
-  const id=hitMockupLayer(p.x,p.y);
-  setMockupSelection(id);
-  const layer=activeMockupLayer();
-
-  if(layer&&(layer.kind==="pattern"||layer.kind==="both")){
-    const s=mockupState(id);
-    mockupDrag={
-      layerId:id,
-      startX:e.clientX,
-      startY:e.clientY,
-      x:s.x,
-      y:s.y,
-      moving:false
-    };
-    mockupCanvas.classList.add("dragging");
-    mockupCanvas.setPointerCapture(e.pointerId);
-  }
+if(e.pointerType==="touch")return;
+const p=getCanvasPoint(e);
+if(!p.inside)return;
+dismissMockupHints();
+if(mockupEyeSample){
+try{
+const pixels=mockupCtx.getImageData(
+Math.floor(p.x),Math.floor(p.y),1,1
+).data;
+const s=mockupState(mockupEyeSample);
+if(s){
+s.color=hexFromRgb(pixels[0],pixels[1],pixels[2]);
+selectedMockupLayer=mockupEyeSample;
+renderMockupInspector();
+renderMockup();
+}
+}catch(err){
+mockupStatus.textContent="외부 이미지 보안 때문에 색을 읽을 수 없습니다.";
+}
+mockupEyeSample=null;
+return;
+}
+const id=hitMockupLayer(p.x,p.y);
+setMockupSelection(id);
+const layer=activeMockupLayer();
+if(layer&&(layer.kind==="pattern"||layer.kind==="both")){
+const s=mockupState(id);
+mockupDrag={
+layerId:id,
+startX:e.clientX,
+startY:e.clientY,
+x:s.x,
+y:s.y,
+moving:false
+};
+mockupCanvas.classList.add("dragging");
+mockupCanvas.setPointerCapture(e.pointerId);
+}
 });
-
 function stopMockupDrag(){
-  if(mockupDrag?.moving)renderMockupInspector();
-  mockupDrag=null;
-  mockupCanvas.classList.remove("dragging");
+if(mockupDrag?.moving)renderMockupInspector();
+mockupDrag=null;
+mockupCanvas.classList.remove("dragging");
 }
 mockupCanvas.addEventListener("pointerup",stopMockupDrag);
 mockupCanvas.addEventListener("pointercancel",stopMockupDrag);
 
-/* PRELOAD PATTERNS */
-async function preloadMockupPatterns(){
-  const chosen=getPattern();
-  const result=await Promise.all(chosen.variants.map(async(variant,i)=>{
-    const id=variant.src?.match(/i\.imgur\.com\/([^/.]+)/)?.[1];
-    if(!id)return [i,null];
-    return [
-      i,
-      await loadMockupImageFrom(
-        imgurCandidates(id,"png",`pattern_${currentPattern+1}_${i+1}`)
-      )
-    ];
-  }));
-
-  mockupPatternImages=Object.fromEntries(result);
-
-  if(currentPage==="mockup")renderMockupInspector();
-  renderMockup();
-
-  const failed=result.filter(r=>!r[1]);
-  if(failed.length){
-    mockupStatus.textContent=
-      "패턴 이미지를 읽지 못했습니다. 로컬 PNG 저장을 권장합니다.";
-  }
+/* IPAD MOCKUP PINCH */
+let mockupTouchPinch=null;
+let mockupTouchSuppressed=false;
+function mockupTouchCoords(touches){
+const a=touches[0],b=touches[1];
+return{
+x:(a.clientX+b.clientX)/2,
+y:(a.clientY+b.clientY)/2,
+distance:Math.max(1,Math.hypot(b.clientX-a.clientX,b.clientY-a.clientY))
+};
 }
 
+function startMockupPinch(touches){
+const center=mockupTouchCoords(touches);
+const mid=getCanvasPoint({clientX:center.x,clientY:center.y});
+const candidateId=mid.inside?hitMockupLayer(mid.x,mid.y):null;
+const candidate=activeMockupConfig().layers.find(l=>l.id===candidateId);
+const selected=activeMockupLayer();
+const first=activeMockupConfig().layers.find(resizableMockupLayer);
+const target=resizableMockupLayer(candidate)
+?candidate
+:(resizableMockupLayer(selected)?selected:first);
+mockupDrag=null;
+mockupCanvas.classList.remove("dragging");
+if(!target){
+mockupTouchPinch=null;
+return;
+}
+if(target.id!==selectedMockupLayer)setMockupSelection(target.id);
+mockupTouchPinch={
+id:target.id,
+distance:center.distance,
+scale:mockupState(target.id).scale
+};
+mockupTouchSuppressed=true;
+dismissMockupHints();
+}
+
+mockupCanvas.addEventListener("touchstart",e=>{
+if(currentPage!=="mockup")return;
+e.preventDefault();
+if(e.touches.length>=2){
+startMockupPinch(e.touches);
+return;
+}
+if(e.touches.length!==1||mockupBusy)return;
+mockupTouchSuppressed=false;
+const t=e.touches[0];
+const p=getCanvasPoint(t);
+if(!p.inside)return;
+dismissMockupHints();
+
+if(mockupEyeSample){
+try{
+const pixels=mockupCtx.getImageData(
+Math.floor(p.x),Math.floor(p.y),1,1
+).data;
+const s=mockupState(mockupEyeSample);
+if(s){
+s.color=hexFromRgb(pixels[0],pixels[1],pixels[2]);
+selectedMockupLayer=mockupEyeSample;
+renderMockupInspector();
+renderMockup();
+}
+}catch(err){
+mockupStatus.textContent="이미지에서 색을 읽을 수 없습니다.";
+}
+mockupEyeSample=null;
+return;
+}
+
+const id=hitMockupLayer(p.x,p.y);
+setMockupSelection(id);
+const layer=activeMockupLayer();
+if(resizableMockupLayer(layer)){
+const s=mockupState(id);
+mockupDrag={
+layerId:id,
+startX:t.clientX,
+startY:t.clientY,
+x:s.x,
+y:s.y,
+moving:false
+};
+}
+},{passive:false});
+
+mockupCanvas.addEventListener("touchmove",e=>{
+if(currentPage!=="mockup")return;
+e.preventDefault();
+if(e.touches.length>=2){
+if(!mockupTouchPinch)startMockupPinch(e.touches);
+if(!mockupTouchPinch)return;
+const state=mockupState(mockupTouchPinch.id);
+if(!state)return;
+const center=mockupTouchCoords(e.touches);
+const value=Math.max(20,Math.min(600,Math.round(
+mockupTouchPinch.scale*
+center.distance/
+mockupTouchPinch.distance
+)));
+if(state.scale!==value){
+state.scale=value;
+syncMockupScaleUI(value);
+renderMockup();
+}
+return;
+}
+
+if(e.touches.length===1&&!mockupTouchSuppressed&&mockupDrag){
+const t=e.touches[0];
+const s=mockupState(mockupDrag.layerId);
+if(!s)return;
+const rect=mockupCanvas.getBoundingClientRect();
+const ratio=Math.min(
+rect.width/mockupCanvas.width,
+rect.height/mockupCanvas.height
+);
+const dx=(t.clientX-mockupDrag.startX)/ratio;
+const dy=(t.clientY-mockupDrag.startY)/ratio;
+if(!mockupDrag.moving&&Math.hypot(dx,dy)<5)return;
+mockupDrag.moving=true;
+s.x=Math.max(-500,Math.min(500,Math.round(mockupDrag.x+dx)));
+s.y=Math.max(-500,Math.min(500,Math.round(mockupDrag.y+dy)));
+renderMockup();
+}
+},{passive:false});
+
+function endMockupTouch(e){
+if(e.touches.length<2)mockupTouchPinch=null;
+if(e.touches.length===0){
+if(mockupDrag?.moving)renderMockupInspector();
+mockupDrag=null;
+mockupTouchSuppressed=false;
+}else{
+mockupDrag=null;
+mockupTouchSuppressed=true;
+}
+}
+mockupCanvas.addEventListener("touchend",endMockupTouch,{passive:false});
+mockupCanvas.addEventListener("touchcancel",endMockupTouch,{passive:false});
+["gesturestart","gesturechange","gestureend"].forEach(name=>{
+mockupCanvas.addEventListener(name,e=>e.preventDefault(),{passive:false});
+});
+
+/* PARALLEL COLORWAY LOADING */
+async function preloadMockupPatterns(){
+const indexAtStart=currentPattern;
+const chosen=getPattern();
+const jobs=chosen.variants.map(async(variant,i)=>{
+const id=variant.src?.match(/i\.imgur\.com\/([^/.]+)/)?.[1];
+const image=id?await loadMockupImageFrom(
+imgurCandidates(id,"png",`pattern_${indexAtStart+1}_${i+1}`)
+):null;
+if(currentPage!=="mockup"||currentPattern!==indexAtStart)return image;
+mockupPatternImages[i]=image;
+renderMockup();
+if(i===currentColor||
+i===getPaletteVariantForLayer(activeMockupLayer()||{kind:"background"})){
+renderMockupInspector();
+}
+return image;
+});
+const results=await Promise.all(jobs);
+if(currentPage!=="mockup"||currentPattern!==indexAtStart)return;
+if(results.some(x=>!x)){
+mockupStatus.textContent="일부 패턴 이미지를 읽지 못했습니다. 로컬 PNG 저장을 권장합니다.";
+}
+}
 inspectorContent.addEventListener("input",()=>dismissMockupHints());
 inspectorContent.addEventListener("click",e=>{
-  if(e.target.closest("button,input,canvas"))dismissMockupHints();
+if(e.target.closest("button,input,canvas"))dismissMockupHints();
 });
 
+/* OPEN / RESET */
 function openMockup(){
-  mockupStates=initialMockupStates();
-  mockupEyeSample=null;
-  mockupPatternImages={};
-  mockupHintsDismissed=false;
-  showPage("mockup");
-  renderMockupHints();
-  selectMockupType("dress");
-  preloadMockupPatterns();
+mockupStates=initialMockupStates();
+mockupEyeSample=null;
+mockupPatternImages={};
+mockupHintsDismissed=false;
+showPage("mockup");
+renderMockupHints();
+selectMockupType("dress");
+preloadMockupPatterns();
 }
-
 function onMockupThemeChange(){
-  renderMockup();
+renderMockup();
 }
-
 document.querySelectorAll("[data-open-mockup]").forEach(button=>{
-  button.onclick=e=>{
-    e.stopPropagation();
-    openMockup();
-  };
+button.onclick=e=>{
+e.stopPropagation();
+openMockup();
+};
 });
-
 document.getElementById("mockupBack").onclick=()=>showPage("detail");
-
 document.getElementById("mockupReset").onclick=()=>{
-  const previous=selectedMockupLayer;
-  mockupStates=initialMockupStates();
-  selectedMockupLayer=previous;
-  mockupHintsDismissed=false;
-  renderMockupInspector();
-  renderMockup();
-  renderMockupHints();
+const previous=selectedMockupLayer;
+mockupStates=initialMockupStates();
+selectedMockupLayer=previous;
+mockupHintsDismissed=false;
+renderMockupInspector();
+renderMockup();
+renderMockupHints();
 };
 
 /* THEME */
 function toggleTheme(){
-  isLightMode=!isLightMode;
-  document.body.classList.toggle("light",isLightMode);
-  updateHomeImages();
-  currentColor=preferredVariant(getPattern(),isLightMode?1:0);
-
-  if(currentPage==="fullscreen"){
-    updatePattern();
-    renderColors();
-  }
-  if(currentPage==="mockup"){
-    onMockupThemeChange();
-  }
+isLightMode=!isLightMode;
+document.body.classList.toggle("light",isLightMode);
+updateHomeImages();
+currentColor=preferredVariant(getPattern(),isLightMode?1:0);
+if(currentPage==="fullscreen"){
+updatePattern();
+renderColors();
+}
+if(currentPage==="mockup")onMockupThemeChange();
 }
 document.getElementById("themeButton").onclick=toggleTheme;
 
 /* NAVIGATION */
 detailImage.onclick=openFullscreen;
-
 detailImage.addEventListener("keydown",e=>{
-  if(e.key==="Enter"||e.key===" "){
-    e.preventDefault();
-    openFullscreen();
-  }
+if(e.key==="Enter"||e.key===" "){
+e.preventDefault();
+openFullscreen();
+}
 });
-
 document.getElementById("detailBack").onclick=()=>showPage("home");
 document.getElementById("fullBack").onclick=()=>showPage("detail");
 document.getElementById("logo").onclick=()=>showPage("home");
 
 document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){
-    if(currentPage==="fullscreen"||currentPage==="mockup"){
-      showPage("detail");
-    }else if(currentPage==="detail"){
-      showPage("home");
-    }
-  }
-
-  if(currentPage==="fullscreen"){
-    if(e.key==="+")setZoom(zoom*1.2,innerWidth/2,innerHeight/2);
-    if(e.key==="-")setZoom(zoom/1.2,innerWidth/2,innerHeight/2);
-  }
+if(e.key==="Escape"){
+if(currentPage==="fullscreen"||currentPage==="mockup"){
+showPage("detail");
+}else if(currentPage==="detail"){
+showPage("home");
+}
+}
+if(currentPage==="fullscreen"){
+if(e.key==="+")setZoom(zoom*1.2,innerWidth/2,innerHeight/2);
+if(e.key==="-")setZoom(zoom/1.2,innerWidth/2,innerHeight/2);
+}
 });
 
 window.addEventListener("resize",()=>{
-  floatingItems.forEach(d=>{
-    d.size=d.element.getBoundingClientRect().width;
-    d.x=Math.max(0,Math.min(d.x,innerWidth-d.size));
-    d.y=Math.max(65,Math.min(d.y,innerHeight-d.size));
-    d.element.style.transform=`translate3d(${d.x}px,${d.y}px,0)`;
-  });
-
-  if(currentPage==="fullscreen")drawPatternTiles();
-  if(currentPage==="detail")updateDetailImage();
-  if(currentPage==="mockup")renderMockupHints();
+floatingItems.forEach(d=>{
+d.size=d.element.getBoundingClientRect().width;
+d.x=Math.max(0,Math.min(d.x,innerWidth-d.size));
+d.y=Math.max(65,Math.min(d.y,innerHeight-d.size));
+d.element.style.transform=`translate3d(${d.x}px,${d.y}px,0)`;
+});
+if(currentPage==="fullscreen")drawPatternTiles();
+if(currentPage==="detail")updateDetailImage();
+if(currentPage==="mockup")renderMockupHints();
 });
 
 createFloatingItems();
